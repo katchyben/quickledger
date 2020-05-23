@@ -1,0 +1,84 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="unizik_legacy_payment_tree">
+      <field name="name">Students</field>
+      <field name="model">legacy.payment</field>
+      <field name="arch" type="xml">
+        <tree decoration-info="status == 'Processed'" decoration-danger="status == 'Failed'">
+            <field name="session"/>
+            <field name="matric"/>
+            <field name="dept"/>
+            <field name="amount"/>
+            <field name="purpose"/>
+            <field name="status"/>
+        </tree>
+      </field>
+    </record>
+
+  <record id="unizik_legacy_payment_form" model="ir.ui.view">
+     <field name="name">legacy.payment</field>
+     <field name="model">legacy.payment</field>
+     <field name="arch" type="xml">
+        <form string="Student" delete="false" duplicate="0">
+         <header>
+            <field name="status" widget="statusbar" statusbar_visible="New,Processed"/>
+            <button name="action_process" string="Process" type="object" class="oe_highlight" attrs="{'invisible':[('status','not in', ('New', 'Failed'))]}"/>
+         </header>
+            <sheet>
+                 <group colspan="4">
+                    <field name="payment_date"/>
+                    <field name="session"/>
+                    <field name="matric"/>
+                    <field name="name"/>
+                    <field name="level"/>
+                    <field name="dept"/>
+                    <field name="account"/>
+                    <field name="receipt"/>
+                    <field name="teller_number"/>
+                    <field name="amount"/>
+                    <field name="purpose"/>
+                    <field name="remarks"/>
+                  </group>
+             </sheet>
+        </form>
+     </field>
+ </record>
+
+ <record id="unizik_legacy_payment_view_search" model="ir.ui.view">
+            <field name="name">legacy.payment.search</field>
+            <field name="model">legacy.payment</field>
+            <field name="arch" type="xml">
+                <search string="Search Results">
+                     <field name="matric"/>
+                     <field name="account"/>
+                     <field name="purpose"/>
+                     <field name="session"/>
+                     <filter name="New" string="New" domain="[('status', '=', 'New')]"/>
+                     <filter name="Processed" string="Processed" domain="[('status', '=', 'Processed')]"/>
+                     <filter name="Failed" string="Failed" domain="[('status', '=', 'Failed')]"/>
+                    <group expand="0" string="Group By">
+                        <filter name="groupby_status" string="Status" context="{'group_by':'status'}"/>
+                    </group>
+                </search>
+            </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="unizik_legacy_payment_action_window">
+      <field name="name">Payments</field>
+      <field name="res_model">legacy.payment</field>
+      <field name="search_view_id" ref="unizik_legacy_payment_view_search"/>
+      <field name="context">{"search_default_groupby_status":1}</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+  </data>
+</odoo>
+
+
+
+
+
+

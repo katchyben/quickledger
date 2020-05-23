@@ -1,0 +1,70 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition 
+    -->
+   
+    <record model="ir.ui.view" id="academic_year_tree">
+      <field name="name">Academic Fees</field>
+      <field name="model">academic.fee</field>
+      <field name="arch" type="xml">
+        <tree>
+           <field name="type_id"/>
+           <field name="amount"/>
+           <field name="currency_id" invisible="1"/>
+           <field name='level_id'/>
+           <field name='diploma_type_id'/>
+           <field name="classification_id"/>
+        </tree>
+      </field>
+    </record>
+
+  <record id="academic_fee_form" model="ir.ui.view">
+     <field name="name">Fees</field>
+     <field name="model">academic.fee</field>
+     <field name="arch" type="xml">
+        <form string="Fees" delete="false" duplicate="0">
+              <sheet>
+                 <group colspan="4">
+                     <field name="type_id" options="{'no_create_edit': True}"/>
+                     <field name="amount"/>
+                     <field name="currency_id" invisible="1"/>
+                     <field name="faculty_ids" colspan="4" invisible="1"/>
+                     <field name="level_ids" colspan="4" invisible="1"/>
+                     <field name="level_id" colspan="4" domain="[('id','in', level_ids)]" options="{'no_create_edit': True}"/>
+                     <field name="school_id" colspan="4" invisible="1"/>
+                     <field name="term_id"/>
+                     <field name='frequency'/>
+                </group>
+              </sheet>
+        </form>
+     </field>
+ </record>
+  <record id="unizik_academic_fee_view_search" model="ir.ui.view">
+            <field name="name">academic.fee.search</field>
+            <field name="model">academic.fee</field>
+            <field name="arch" type="xml">
+                <search string="Search Fee">
+                    <field name="type_id"/>
+                    <field name='level_id'/>
+                    <field name='diploma_type_id'/>
+                    <field name="amount"/>
+                </search>
+            </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="academic_academic_fees_action_window">
+      <field name="name">Fees</field>
+      <field name="res_model">academic.fee</field>
+      <field name="search_view_id" ref="unizik_academic_fee_view_search" />
+      <field name="view_mode">tree,form</field>
+    </record>
+  </data>
+</odoo>
+
+
+
+
+
+

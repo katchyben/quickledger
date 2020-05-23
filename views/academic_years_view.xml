@@ -1,0 +1,50 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+   
+    <record model="ir.ui.view" id="academic_session_tree">
+      <field name="name">Academic Sessions</field>
+      <field name="model">academic.session</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="code"/>
+          <field name="name"/>
+          <field name="date_start"/>
+          <field name="date_end"/>
+        </tree>
+      </field>
+    </record>
+
+  <record id="academic_session_form" model="ir.ui.view">
+     <field name="name">sessions</field>
+     <field name="model">academic.session</field>
+     <field name="arch" type="xml">
+        <form string="Sessions" delete="false" duplicate="0">
+              <sheet>
+                 <group colspan="4">
+                     <field name="sequence"/>
+                     <field name="code"/>
+                     <field name="name"/>
+                     <field name="date_start"/>
+                     <field name="date_end"/>
+                </group>
+              </sheet>
+        </form>
+     </field>
+ </record>
+  
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="academic_academic_sessions_action_window">
+      <field name="name">Sessions</field>
+      <field name="res_model">academic.session</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+  </data>
+</odoo>
+
+
+
+
+
+

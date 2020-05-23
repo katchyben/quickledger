@@ -1,0 +1,179 @@
+<odoo>
+    <data>
+        <!-- Top menu item -->
+        <menuitem id="unizik_menu_manager_top" name="QLedgers"/>
+
+        <menuitem
+                id="board.menu_board_my_dash"
+                parent="unizik_menu_manager_top"
+                action="board.open_board_my_dash_action"
+                sequence="-1"/>
+
+        <!-- menu categories -->
+        <menuitem name="General information"
+                  id="unizik_menu_general"
+                  sequence='1'
+                  parent="unizik_menu_manager_top"/>
+
+        <menuitem name="Students Information"
+                  id="unizik_menu_students"
+                  sequence='2'
+                  action="unizik_students_action_window"
+                  parent="unizik_menu_manager_top"/>
+
+
+        <!-- Ledger Management -->
+        <menuitem name="Ledger Management"
+                  id="unizik_menu_ledger_management"
+                  sequence='4'
+                  parent="unizik_menu_manager_top"/>
+
+           <menuitem name="Ledgers"
+                  id="unizik_menu_student_ledgers"
+                  sequence='1'
+                  action="unizik_student_ledgers_action_window"
+                  parent="unizik_menu_ledger_management"/>
+
+            <menuitem name="Ledger Entries"
+                  id="unizik_menu_academic_fee_entries"
+                  sequence='2'
+                  action="unizik_academic_fee_entries_action_window"
+                  parent="unizik_menu_ledger_management"/>
+
+            <menuitem name="Enter Payments"
+                  id="unizik_menu_enter_payments"
+                  sequence='3'
+                  action="action_academic_payment_model_wizard"
+                  parent="unizik_menu_ledger_management"/>
+
+
+            <menuitem name="Payment Entries"
+                 id="unizik_menu_academic_payment_entries"
+                 sequence='4'
+                 action="unizik_academic_payment_entries_action_window"
+                 parent="unizik_menu_ledger_management"/>
+
+
+            <!-- Reporting -->
+            <menuitem name="Reporting"
+                  id="unizik_reporting"
+                  sequence='8'
+                  parent="unizik_menu_manager_top"/>
+
+            <menuitem name="Fees By Name"
+                 id="unizik_menu_fees_by_name"
+                 sequence='1'
+                 action="action_ledger_entry_report_wizard"
+                 parent="unizik_reporting"/>
+
+            <menuitem name="Payments By Date"
+                 id="unizik_menu_payments_by_date"
+                 sequence='2'
+                 action="action_ledger_entry_report_wizard"
+                 parent="unizik_reporting"/>
+
+            <menuitem name="Indebted Students By Faculties"
+                 id="unizik_menu_indebted_students_by_faculty"
+                 sequence='3'
+                 action="action_ledger_entry_report_wizard"
+                 parent="unizik_reporting"/>
+
+            <menuitem name="Indebted Students By Department"
+                 id="unizik_menu_indebted_students_by_department"
+                 sequence='4'
+                 action="action_ledger_entry_report_wizard"
+                 parent="unizik_reporting"/>
+
+
+        <menuitem name="Master Data"
+                  id="unizik_reference_data"
+                  sequence='9'
+                  parent="unizik_menu_manager_top"/>
+
+        <menuitem name="ETL"
+                  id="unizik_etl"
+                  sequence='9'
+                  parent="unizik_menu_manager_top"/>
+
+        <!-- General -->
+
+        <menuitem name="Students"
+                  id="unizik_menu_all_students_1"
+                  sequence='1'
+                  action="unizik_students_action_window"
+                  parent="unizik_menu_general"/>
+
+        <menuitem name="Registrations"
+                  id="unizik_menu_student_registrations_2"
+                  sequence='3'
+                  action="unizik_student_registrations_action_window"
+                  parent="unizik_menu_students"/>
+
+
+        <menuitem name="Faculties"
+                  id="unizik_faculties"
+                  action="unizik_faculties_action_window"
+                  parent="unizik_menu_general"/>
+
+        <menuitem name="Departments"
+                  id="unizik_departments"
+                  action="unizik_departments_action_window"
+                  parent="unizik_menu_general"/>
+
+        <menuitem name="Programmes"
+                  id="unizik_academic_programme"
+                  action="academic_academic_programmes_action_window"
+                  parent="unizik_menu_general"/>
+
+
+        <!-- Students Information -->
+        <menuitem name="Students"
+                  id="unizik_menu_all_students"
+                  sequence='1'
+                  action="unizik_students_action_window"
+                  parent="unizik_menu_students"/>
+        
+      
+        <!-- ETL  -->
+        <menuitem name="Students Data"
+                  id="unizik_menu_student_academic_legacy_student"
+                  sequence='1'
+                  action="unizik_academic_legacy_student_action_window"
+                  parent="unizik_etl"/>
+
+         <menuitem name="Payments"
+              id="unizik_menu_legacy_payment"
+              sequence='3'
+              action="unizik_legacy_payment_action_window"
+              parent="unizik_etl"/>
+
+      
+        <!-- Master Data -->
+         <menuitem name="Fees"
+                 id="unizik_academic_fees"
+                 action="academic_academic_fees_action_window"
+                 parent="unizik_reference_data"/>
+
+        <menuitem name="Payment Types"
+                 id="unizik_academic_payment_types"
+                 action="academic_payment_types_action_window"
+                 parent="unizik_reference_data"/>
+
+        <menuitem name="Semesters"
+                  id="unizik_academic_semesters"
+                  action="academic_semesters_action_window"
+                  parent="unizik_reference_data"/>
+
+        <menuitem name="Sessions"
+                  id="unizik_academic_sessions"
+                  action="academic_academic_sessions_action_window"
+                  parent="unizik_reference_data"/>
+
+        <menuitem name="Levels"
+                  id="unizik_academic_levels"
+                  action="academic_academic_levels_action_window"
+                  parent="unizik_reference_data"/>     
+       
+      
+    </data>
+</odoo>

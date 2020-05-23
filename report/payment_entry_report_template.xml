@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_payment_entry">
+        <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="oe_structure"/>
+                        <h2>Payment Report</h2>
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Name</th>
+                                    <th>Reg #</th>
+                                    <th>Programme</th>
+                                    <th>Bank</th>
+                                    <th>Teller #</th>
+                                    <th>Level</th>
+                                    <th>Total Amount Due</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                              <t t-foreach="docs" t-as="line">
+                                <tr>
+                                    <td><span t-field="line.payment_date"/></td>
+                                    <td><span t-field="line.student_id.name"/></td>
+                                    <td><span t-field="line.student_id.matriculation_number"/></td>
+                                    <td><span t-field="line.programme_id.name"/></td>
+                                    <td><span t-field="line.bank_id.name"/></td>
+                                    <td><span t-field="line.teller_number"/></td>
+                                    <td><span t-field="line.level_id.name"/></td>
+                                    <td><span t-field="line.amount"/></td>
+                                </tr>
+                              </t>
+                              <tr class="border-black">
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <strong><span t-esc="sum([line.amount for line in docs]) or 0.0"/></strong>
+                                        </td>
+                                    </tr>
+                            </tbody>
+                          </table>
+                        <div class="oe_structure"/>
+                    </div>
+                </t>
+           </t>
+    </template>
+</odoo>

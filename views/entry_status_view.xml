@@ -1,0 +1,46 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record model="ir.ui.view" id="unizik_entry_status_tree">
+            <field name="name">Entry Status</field>
+            <field name="model">quickledger.entry.status</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="code"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="unizik_entry_status_form" model="ir.ui.view">
+            <field name="name">Status</field>
+            <field name="model">quickledger.entry.status</field>
+            <field name="arch" type="xml">
+                <form string="Statuses" delete="false" duplicate="0">
+                    <sheet>
+                        <group colspan="4">
+                            <field name="code"/>
+                            <field name="name"/>
+                        </group>
+                        
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="unizik_entry_status_action_window">
+            <field name="name">Entry Statuses</field>
+            <field name="res_model">quickledger.entry.status</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>
+
+
+
+
+
+

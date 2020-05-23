@@ -1,0 +1,51 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record model="ir.ui.view" id="unizik_grade_tree">
+            <field name="name">Grades</field>
+            <field name="model">quickledger.grade</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="point"/>
+                    <field name="min_grade"/>
+                    <field name="max_grade"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="unizik_grade_form" model="ir.ui.view">
+            <field name="name">Grades</field>
+            <field name="model">quickledger.grade</field>
+            <field name="arch" type="xml">
+                <form string="Grade" delete="false" duplicate="0">
+                    <sheet>
+                        <group colspan="4">
+                            <field name="grading_scheme_id"/>
+                            <field name="name"/>
+                            <field name="point"/>
+                            <field name="is_pass_mark"/>
+                            <field name="min_grade"/>
+                            <field name="max_grade"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="unizik_academic_grades_action_window">
+            <field name="name">Grades</field>
+            <field name="res_model">quickledger.grade</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>
+
+
+
+
+
+

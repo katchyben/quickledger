@@ -1,0 +1,82 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record model="ir.ui.view" id="unizik_student_result_entry_tree">
+            <field name="name">Student Result Entry</field>
+            <field name="model">student.result.entry</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="session_id"/>
+                    <field name="semester_id"/>
+                    <field name="student_id"/>
+                    <field name="reg_number"/>
+                    <field name="course_name"/>
+                    <field name="course_id"/>
+                    <field name="score"/>
+                    <field name="grade_id"/>
+                </tree>
+            </field>
+        </record>
+        <record id="unizik_student_result_entry_form" model="ir.ui.view">
+            <field name="name">Student Result Entries</field>
+            <field name="model">student.result.entry</field>
+            <field name="arch" type="xml">
+                <form string="Student Result Entries" delete="false" duplicate="0" create="false" edit="false">
+                    <header>
+                        <field name="status" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group colspan="4">
+                            <field name="entry_date"/>
+                            <field name="session_id"/>
+                            <field name="semester_id"/>
+                            <field name="reg_number"/>
+                            <field name="student_id"/>
+                            <field name="course_id"/>
+                            <field name="course_name"/>
+                            <field name="level_id"/>
+                            <field name="ca_score"/>
+                            <field name="test_score"/>
+                            <field name="practicals_score"/>
+                            <field name="score"/>
+                            <field name="units"/>
+                            <field name="points"/>
+                            <field name="is_pass_mark"/>
+                            <field name="grade_id"/>
+                        </group>
+                    </sheet>
+                    <!--div class="oe_chatter">
+                       <field name="message_ids" widget="mail_thread"/>
+                    </div-->
+
+                </form>
+            </field>
+        </record>
+
+        <!-- pivot view -->
+        <record id="unizik_student_result_entry_view_pivot" model="ir.ui.view">
+            <field name="name">Result</field>
+            <field name="model">student.result.entry</field>
+            <field name="arch" type="xml">
+            <pivot string="Result Analysis">
+                <field name="course_id" type="row" />
+            </pivot>
+          </field>
+       </record>
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="unizik_student_result_entry_action_window">
+            <field name="name">Result Entries</field>
+            <field name="res_model">student.result.entry</field>
+            <field name="view_mode">tree,form,pivot,graph</field>
+        </record>
+
+    </data>
+</odoo>
+
+
+
+
+
+

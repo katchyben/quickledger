@@ -1,0 +1,46 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="academic_semester_tree">
+            <field name="name">Semesters</field>
+            <field name="model">quickledger.semester</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="code"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="academic_semester_form" model="ir.ui.view">
+            <field name="name">semesters</field>
+            <field name="model">quickledger.semester</field>
+            <field name="arch" type="xml">
+                <form string="Semesters" delete="false" duplicate="0">
+                    <sheet>
+                        <group colspan="4">
+                            <field name="code"/>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="academic_semesters_action_window">
+            <field name="name">Semesters</field>
+            <field name="res_model">quickledger.semester</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>
+
+
+
+
+
+

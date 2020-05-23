@@ -1,0 +1,93 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record model="ir.ui.view" id="unizik_course_tree">
+            <field name="name">courses</field>
+            <field name="model">programme.course</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="diploma_id"/>
+                    <field name="semester_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="unizik_course_form" model="ir.ui.view">
+            <field name="name">courses</field>
+            <field name="model">programme.course</field>
+            <field name="arch" type="xml">
+                <form string="Courses" delete="false" duplicate="0">
+                    <sheet>
+                        <group colspan="4">
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="semester_id" options="{'no_create_edit': True,  'no_open': True}"/>
+                            <field name="diploma_id" options="{'no_create_edit': True,  'no_open': True}"/>
+                        </group>
+                        <notebook>
+                            <page name="public" string="Courses Details">
+                                <group>
+                                    <field name="entry_ids" nolabel="1">
+                                        <tree string="Entries" editable="bottom">
+                                            <field name="programme_id"
+                                                   options="{'no_create_edit': True,  'no_open': True}"/>
+                                            <field name="option_id" domain="[('programme_id', '=', programme_id)]"/>
+                                            <field name="level_id"
+                                                   options="{'no_create_edit': True,  'no_open': True}"/>
+                                            <field name='name'/>
+                                            <field name='code'/>
+                                            <field name="semester_id"
+                                                   options="{'no_create_edit': True,  'no_open': True}"/>
+                                            <field name="units"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                            <page name="public" string="Lecturers">
+                                <group>
+                                    <field name="lecturer_ids" nolabel="1">
+                                        <tree string="Lecturers" editable="bottom">
+                                            <field name='full_name'/>
+                                            <field name="phone_number"/>
+                                            <field name="email"/>
+                                            <field name="position_id"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="unizik_programme_course_view_search" model="ir.ui.view">
+            <field name="name">programme.course.search</field>
+            <field name="model">programme.course</field>
+            <field name="arch" type="xml">
+                <search string="Search Course">
+                    <field name="code"/>
+                    <field name="name" string="Name"/>
+                    <field name="semester_id" string="Semester"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="unizik_courses_action_window">
+            <field name="name">Courses</field>
+            <field name="res_model">programme.course</field>
+            <field name="search_view_id" ref="unizik_programme_course_view_search"/>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>
+
+
+
+
+
+

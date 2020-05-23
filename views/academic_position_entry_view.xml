@@ -1,0 +1,64 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="unizik_quickledger_position_entry_tree">
+      <field name="name">position.entry</field>
+      <field name="model">quickledger.position.entry</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="entry_date"/>
+          <field name="name"/>
+          <field name="department_id"/>
+          <field name="faculty_id"/>
+        </tree>
+      </field>
+    </record>
+
+  <record id="unizik_quickledger_position_entry_form" model="ir.ui.view">
+     <field name="name">positions</field>
+     <field name="model">quickledger.position.entry</field>
+     <field name="arch" type="xml">
+        <form string="Positions" delete="false" duplicate="0">
+            <sheet>
+                 <group colspan="4">
+                       <field name="entry_date"/>
+                       <field name="name"/>
+                       <field name="department_id"/>
+                       <field name="faculty_id"/>
+                </group>
+                <notebook>
+                            <page name="public" string="Lecturers">
+                                <group>
+                                    <field name="lecturer_ids" nolabel="1">
+                                        <tree editable="bottom">
+                                            <field name="full_name"/>
+                                            <field name="department_id"/>
+                                            <field name="faculty_id"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                            
+                        </notebook>
+
+            </sheet>
+        </form>
+     </field>
+ </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="unizik_quickledger_position_entry_action_window">
+      <field name="name">Positions</field>
+      <field name="res_model">quickledger.position.entry</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+  </data>
+</odoo>
+
+
+
+
+
+

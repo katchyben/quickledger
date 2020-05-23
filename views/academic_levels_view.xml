@@ -1,0 +1,49 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition
+        -->
+
+        <record model="ir.ui.view" id="academic_level_tree">
+            <field name="name">Academic Levels</field>
+            <field name="model">quickledger.level</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="type_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="academic_level_form" model="ir.ui.view">
+            <field name="name">levels</field>
+            <field name="model">quickledger.level</field>
+            <field name="arch" type="xml">
+                <form string="Sessions" delete="false" duplicate="0">
+                    <sheet>
+                        <group colspan="4">
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="type_id"/>
+                            <field name="next_class_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="academic_academic_levels_action_window">
+            <field name="name">Levels</field>
+            <field name="res_model">quickledger.level</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>
+
+
+
+
+
+

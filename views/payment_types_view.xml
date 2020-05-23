@@ -1,0 +1,49 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition 
+    -->
+   
+    <record model="ir.ui.view" id="academic_payment_type_tree">
+      <field name="name">payment.type</field>
+      <field name="model">payment.type</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="code"/>
+          <field name='description'/>
+        </tree>
+      </field>
+    </record>
+
+  <record id="payment_type_form" model="ir.ui.view">
+     <field name="name">Payment Types</field>
+     <field name="model">payment.type</field>
+     <field name="arch" type="xml">
+        <form string="Payment Type" delete="false" duplicate="0">
+              <sheet>
+                 <group colspan="4">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="faculty_ids" colspan="4" options="{'no_create': True}"/>
+                    <field name="level_ids" colspan="4" options="{'no_create': True}"/>
+                    <field name='description'/>
+                </group>
+              </sheet>
+        </form>
+     </field>
+ </record>
+    <!--  actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="academic_payment_types_action_window">
+      <field name="name">Payment Type</field>
+      <field name="res_model">payment.type</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+  </data>
+</odoo>
+
+
+
+
+
+

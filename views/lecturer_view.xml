@@ -1,0 +1,88 @@
+<odoo>
+  <data>
+    <!-- Visit Request List View definition -->
+    <record model="ir.ui.view" id="quickledger_lecturer">
+      <field name="name">Lecturer</field>
+      <field name="model">quickledger.lecturer</field>
+      <field name="arch" type="xml">
+         <tree>
+              <field name="full_name" string="Name"/>
+              <field name="department_id"/>
+              <field name="faculty_id"/>
+         </tree>
+      </field>
+    </record>
+
+    <record id="quickledger_lecturer_form" model="ir.ui.view">
+     <field name="name">Lecturer</field>
+     <field name="model">quickledger.lecturer</field>
+     <field name="arch" type="xml">
+        <form string="Staff" delete="false" duplicate="0">
+           <sheet>
+             <group>
+                  <group>
+                     <field name="title" widget='radio'/>
+                     <field name="name"/>
+                     <field name="surname"/>
+                     <field name="phone_number"/>
+                 </group>
+                    <group>
+                        <field name="image" widget="image" class="oe_left oe_avatar"/>
+                    </group>
+                  <group>
+                     <field name="employment_date"/>
+                     <field name="department_id" options="{'no_create_edit': True, 'no_open': True}"/>
+                     <field name="position_id" domain="[('department_id', '=', department_id)]" options="{'no_create_edit': True, 'no_open': True}"/>
+                     <field name="email" widget="email"/>
+                     <field name="address"/>
+                  </group> 
+                  <group>
+                     <field name="gender" widget='radio'/>
+                     <field name="marital_status" widget='radio'/>
+                  </group>
+                </group>
+                <notebook>
+                 <page name="public" string="Credentials">
+                    <group>
+                      <field name="credential_ids" nolabel="1">
+                          <tree string="Credentials" editable="bottom" nolabel="1">
+                            <field name="diploma_id" string="Degree" options="{'no_create_edit': True, 'no_open': True}"/>
+                            <field name="honour_id" options="{'no_create_edit': True, 'no_open': True}"/>
+                            <field name="discipline"/>
+                            <field name="institution"/>
+                            <field name="exam_year" string="Year"/>
+                          </tree>
+                      </field>
+                     </group>
+                    </page>
+                    <page name="public" string="Profile">
+                    <group>
+                      <field name="profile" nolabel="1"/>
+                     </group>
+                    </page>
+                    <page name="public" string="Courses">
+                    <group>
+                      <field name="course_ids" nolabel="1">
+                          <tree string="Courses" nolabel="1">
+                            <field name="code"/>
+                            <field name="name" />
+                          </tree>
+                      </field>
+                     </group>
+                    </page>
+                </notebook>
+              </sheet>
+        </form>
+     </field>
+ </record>
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="quickledger_lecturer_action_window">
+      <field name="name">Academic Staff</field>
+      <field name="res_model">quickledger.lecturer</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+   <!-- -->
+    <!-- Top menu item -->
+  </data>
+</odoo>

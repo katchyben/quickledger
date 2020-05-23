@@ -1,0 +1,88 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record model="ir.ui.view" id="unizik_academic_school_course_tree">
+            <field name="name">Courses</field>
+            <field name="model">academic.school.course</field>
+            <field name="arch" type="xml">
+                <tree decoration-info="status == 'Processed'" decoration-danger="status == 'Failed'">
+                    <field name="diploma"/>
+                    <field name="department"/>
+                    <field name="level"/>
+                    <field name="semester"/>
+                    <field name="code"/>
+                    <field name="title"/>
+                    <field name="units"/>
+                    <field name="option"/>
+                    <field name="status"/>
+                    <field name="remarks"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="unizik_school_course_form" model="ir.ui.view">
+            <field name="name">academic.school.course</field>
+            <field name="model">academic.school.course</field>
+            <field name="arch" type="xml">
+                <form string="Courses" delete="false" duplicate="0">
+                    <header>
+                        <field name="status" widget="statusbar" statusbar_visible="New,Processed"/>
+                        <button name="action_process" string="Process" type="object" class="oe_highlight"
+                                attrs="{'invisible':[('status','not in', ('New', 'Failed'))]}"/>
+                    </header>
+                    <sheet>
+                        <group colspan="4">
+                            <field name="diploma"/>
+                            <field name="department"/>
+                            <field name="level"/>
+                            <field name="semester"/>
+                            <field name="code"/>
+                            <field name="title"/>
+                            <field name="units"/>
+                            <field name="option"/>
+                            <field name="status"/>
+                            <field name="remarks"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="unizik_school_course_view_search" model="ir.ui.view">
+            <field name="name">academic.school.course.search</field>
+            <field name="model">academic.school.course</field>
+            <field name="arch" type="xml">
+                <search string="Search school">
+                    <field name="code"/>
+                    <field name="title"/>
+                    <field name="diploma"/>
+                    <field name="department"/>
+                    <field name="option"/>
+                    <filter name="New" string="New" domain="[('status', '=', 'New')]"/>
+                    <filter name="Processed" string="Processed" domain="[('status', '=', 'Processed')]"/>
+                    <filter name="Failed" string="Failed" domain="[('status', '=', 'Failed')]"/>
+                    <group expand="0" string="Group By">
+                        <filter name="groupby_status" string="Status" context="{'group_by':'status'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="unizik_academic_school_course_action_window">
+            <field name="name">Courses</field>
+            <field name="res_model">academic.school.course</field>
+            <field name="search_view_id" ref="unizik_school_course_view_search"/>
+            <field name="context">{"search_default_groupby_status":1}</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>
+
+
+
+
+
+

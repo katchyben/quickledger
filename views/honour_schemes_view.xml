@@ -1,0 +1,58 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record model="ir.ui.view" id="unizik_honour_scheme_tree">
+            <field name="name">Honours</field>
+            <field name="model">quickledger.honour.scheme</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="unizik_honour_scheme_form" model="ir.ui.view">
+            <field name="name">Honours</field>
+            <field name="model">quickledger.honour.scheme</field>
+            <field name="arch" type="xml">
+                <form string="Honours Scheme" delete="false" duplicate="0">
+                    <sheet>
+                        <group colspan="4">
+                            <field name="name"/>
+                            <field name="description"/>
+                        </group>
+                        <notebook>
+                            <page name="public" string="Honours Information">
+                                <group>
+                                    <field name="honour_ids" nolabel="1">
+                                        <tree string="Honours" editable="bottom">
+                                            <field name="name"/>
+                                            <field name="lower_bound"/>
+                                            <field name="upper_bound"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="unizik_academic_honours_schemes_action_window">
+            <field name="name">Honours Schemes</field>
+            <field name="res_model">quickledger.honour.scheme</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>
+
+
+
+
+
+

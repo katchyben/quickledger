@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <report
+        id="action_report_student_ledger"
+        string="Student Ledger"
+        model="student.ledger"
+        report_type="qweb-pdf"
+        attachment_use="True"
+        name="quickledger.report_student_ledger"
+        file="quickledger.report_student_ledger"/>
+
+    <report
+        id="action_report_student_ledger_detail"
+        string="Student Ledger Details"
+        model="student.ledger"
+        report_type="qweb-pdf"
+        attachment_use="True"
+        name="quickledger.report_student_ledger_detail"
+        file="quickledger.report_student_ledger_detail"/>
+
+    <report
+        id="action_report_student_ledger_comprehensive"
+        string="Student Financial Report"
+        model="student.ledger"
+        report_type="qweb-pdf"
+        attachment_use="True"
+        name="quickledger.report_student_ledger_comprehensive"
+        file="quickledger.report_student_ledger_comprehensive"/>
+
+    <report
+        id="action_report_student_payment"
+        string="Student Payments"
+        model="academic.payment.entry"
+        report_type="qweb-pdf"
+        attachment_use="True"
+        name="quickledger.report_payment_entry"
+        file="quickledger.report_payment_entry"/>
+
+    <report
+        id="action_report_ledger_entry_by_name"
+        model="academic.fee.entry"
+        string="Fees By Name"
+        menu="False"
+        report_type="qweb-pdf"
+        name="quickledger.report_ledger_entry_by_name"
+        file="quickledger.report_ledger_entry_by_name"
+        attachment_use="False"/>
+</odoo>
+

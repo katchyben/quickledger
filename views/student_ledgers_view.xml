@@ -1,0 +1,169 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="unizik_student_ledger_tree">
+      <field name="name">Student Ledger</field>
+      <field name="model">student.ledger</field>
+      <field name="arch" type="xml">
+        <tree decoration-danger="total_balance &gt; 0" create="false"> 
+          <field name="student_id"/>
+          <field name="programme_id"/>
+          <field name="total_amount_due" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+          <field name="total_amount_paid" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+          <field name="total_balance" widget='monetary' string="Amount Outstanding" options="{'currency_field': 'currency_id', 'field_digits': True}"/>
+          <field name="currency_id" invisible='True'/>
+        </tree>
+      </field>
+    </record>
+
+  <record id="unizik_student_ledger_form" model="ir.ui.view">
+     <field name="name">Student Ledger</field>
+     <field name="model">student.ledger</field>
+     <field name="arch" type="xml">
+        <form string="Student Ledgers" delete="false" create="false" edit="false" duplicate="0">
+        <header>
+            <button name="preview_ledger" type="object" string="Preview"/>
+            <button name="action_ledger_send" string="Send By Email" type="object" class="oe_highlight"/>
+        </header>
+            <sheet>
+              <group>
+                 <group cols="2" string="Student Info">
+                     <field name="image" widget="image" class="oe_left oe_avatar"/>
+                     <field name="student_id"/>
+                     <field name="programme_id"/>
+                  </group>
+                  <group cols="2" string="Ledger Summary">
+                     <field name="opening_balance" widget='monetary' options="{'currency_field': 'currency_id', 'field_digits': True}"/>
+                     <!--field name="balance_brought_forward" widget='monetary' options="{'currency_field': 'currency_id', 'field_digits': True}"/-->
+                     <field name="total_amount_due" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                     <field name="total_amount_paid" widget='monetary' options="{'currency_field': 'currency_id', 'field_digits': True}"/>
+                     <field name="total_balance" widget="monetary" options="{'currency_field': 'currency_id'}" string="Amount Outstanding"/>
+                     <field name="currency_id" invisible="1"/>
+                  </group>
+                   <group cols="2" string="Current Charges/Fees">
+                     <field name="balance_carried_forward" widget='monetary' options="{'currency_field': 'currency_id', 'field_digits': True}"/>
+                     <field name="current_charges" widget='monetary' options="{'currency_field': 'currency_id', 'field_digits': True}"/>
+                     <field name="total_balance" widget="monetary" options="{'currency_field': 'currency_id'}" string="Amount Outstanding"/>
+                     <field name="currency_id" invisible="1"/>
+                  </group>
+              </group>
+
+                
+                <notebook>
+                  <page name="public" string="Outstanding Fees">
+                    <group>
+                      <field name="outstanding_fee_ids" nolabel="1">
+                          <tree string="Outstanding Fees" editable="bottom">
+                                <field name="session_id"/>
+                                <field name="type_id"/>
+                                <field name="level_id"/>
+                                <field name="amount_due"/>
+                                <field name="amount_paid" sum="Total Amount Paid"/>
+                                <field name="balance" sum="Total Balance"/>
+                                <field name="currency_id" invisible="1"/>
+                          </tree>
+                      </field>
+                     </group>
+                  </page>
+                  <page name="public" string="Paid Fees">
+                    <group>
+                      <field name="paid_fee_ids" nolabel="1">
+                          <tree string="Paid Fees" editable="bottom">
+                                <field name="session_id"/>
+                                <field name="type_id"/>
+                                <field name="level_id"/>
+                                <field name="amount_due"/>
+                                <field name="amount_paid" sum="Amount Paid"/>
+                                <field name="balance"  sum="Total Balance"/>
+                                <field name="currency_id" invisible="1"/>
+                          </tree>
+                      </field>
+                     </group>
+                  </page>
+    
+                  <page name="public" string="All Fees">
+                    <group>
+                      <field name="fee_entry_ids" nolabel="1">
+                          <tree string="Fees Details" editable="bottom">
+                                <field name="session_id"/>
+                                <field name="type_id"/>
+                                <field name="level_id"/>
+                                <field name="amount_due"/>
+                                <field name="amount_paid" sum="Total Amount Paid"/>
+                                <field name="balance"  sum="Total Balance"/>
+                                <field name="currency_id" invisible="1"/>
+                          </tree>
+                      </field>
+                     </group>
+                    </page>
+                    <page name="public" string="Payment Details">
+                    <group>
+                      <field name="payment_entry_ids" nolabel="1">
+                          <tree string="Payments Details" editable="bottom">
+                                <field name="payment_date"/>
+                                <field name="session_id"/>
+                                <field name="bank_id"/>
+                                <field name="teller_number"/>
+                                <field name="amount" widget="monetary" options="{'currency_field': 'currency_id'}" sum="Total Amount Paid"/>
+                                <field name="currency_id" invisible="1"/>
+                          </tree>
+                      </field>
+                     </group>
+                    </page>
+                  </notebook>
+            </sheet>
+        </form>
+     </field>
+ </record>
+ <record id="view_pivot_student_ledger" model="ir.ui.view">
+      <field name="model">student.ledger</field>
+      <field name="arch" type="xml">
+         <pivot>
+             <field name="programme_id" type="row"/>
+             <field name="total_amount_due" type="measure" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+             <field name="total_amount_paid" type="measure" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+             <field name="total_balance" type="measure" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+         </pivot>
+      </field>
+  </record>
+
+  <record id="view_graph_student_ledger" model="ir.ui.view">
+      <field name="model">student.ledger</field>
+         <field name="arch" type="xml">
+          <graph  string="Payment Analytics" type="bar">
+             <field name="total_amount_due" type="measure" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+             <field name="total_amount_paid" type="measure" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+             <field name="total_balance" type="measure" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+             <field name="programme_id" type="row"/>
+          </graph>
+        </field>
+</record>
+<record id="unizik_student_ledger_view_search" model="ir.ui.view">
+            <field name="name">student.ledger.search</field>
+            <field name="model">student.ledger</field>
+            <field name="arch" type="xml">
+                <search string="Search Student Ledger">
+                    <field name="student_id" string="Student"/>
+                    <field name="matriculation_number"/>
+                </search>
+            </field>
+        </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="unizik_student_ledgers_action_window">
+      <field name="name">Ledgers</field>
+      <field name="res_model">student.ledger</field>
+      <field name="search_view_id" ref="unizik_student_ledger_view_search" />
+      <field name="view_mode">tree,form,pivot,graph</field>
+    </record>
+
+  </data>
+</odoo>
+
+
+
+
+
+

@@ -1,0 +1,125 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="unizik_student_registration_tree">
+      <field name="name">Student registration</field>
+      <field name="model">student.registration</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name='entry_date'/>
+          <field name='session_id'/>
+          <field name="student_id"/>
+          <field name="programme_id"/>
+          <field name='level_id'/>
+        </tree>
+      </field>
+    </record>
+
+  <record id="unizik_student_registration_form" model="ir.ui.view">
+     <field name="name">Student Registration</field>
+     <field name="model">student.registration</field>
+     <field name="arch" type="xml">
+        <form string="Student Registrations" delete="false" duplicate="0">
+        <header>
+            <button name="action_approve_registration" string="Approve" class="oe_highlight" states="New" type="object"/>
+            <button name="action_close_registration" string="Close" class="oe_highlight" states="Approved" type="object"/>
+            <field name="state" widget="statusbar" statusbar_visible="New,Approved,Closed"/>
+        </header>
+            <sheet>
+                 <group colspan="4">
+                      <field name='entry_date'/>
+                      <field name='session_id' widget="selection"/>
+                      <field name="programme_id" options="{'no_create_edit': True, 'no_open': True}"/>
+                      <field name="student_id" domain="[('programme_id','=', programme_id)]" options="{'no_create_edit': True, 'no_open': True}"/>
+                      <field name="diploma_id" invisible="1"/>
+                      <field name='level_id'  options="{'no_create_edit': True, 'no_open': True}"/>
+                </group>
+                <notebook>
+                  <page name="public" string="Fees/Charges">
+                    <group>
+                      <field name="fee_entry_ids" nolabel="1">
+                          <tree string="Payment Entries" editable="bottom">
+                                <field name="level_id"/>
+                                <field name="type_id"/>
+                                <field name="amount_due" sum="Total Amount Due"/>
+                                <field name="amount_paid" sum="Total Amount Paid"/>
+                                <field name="balance" sum="Total Amount Outstanding"/>
+                                <field name="currency_id" invisible="1"/>
+                          </tree>
+                      </field>
+                     </group>
+                    </page>
+                  <!--page name="public" string="All Courses">
+                    <group>
+                      <field name="entry_ids" nolabel="1">
+                          <tree string="Entries" editable="bottom">
+                                <field name="course_id" options="{'no_create_edit': True}"/>
+                                <field name="name"/>
+                                <field name='semester_id' options="{'no_create_edit': True}"/>
+                                <field name='level_id' options="{'no_create_edit': True}"/>
+                                <field name="units" sum="Total Credit Registered"/>
+                                <field name="is_brought_forward"/>
+                          </tree>
+                      </field>
+                     </group>
+                    </page>
+                   <page name="public" string="Current Courses">
+                    <group>
+                      <field name="entry_current_ids" nolabel="1">
+                          <tree string="Entries" editable="bottom">
+                                <field name="course_id" options="{'no_create_edit': True}"/>
+                                <field name="name"/>
+                                <field name='semester_id' options="{'no_create_edit': True}"/>
+                                <field name='level_id' options="{'no_create_edit': True}"/>
+                                <field name="units" sum="Total Credit Registered"/>
+                          </tree>
+                      </field>
+                     </group>
+                    </page>
+                    <page name="public" string="Courses Brought Forward">
+                    <group>
+                      <field name="entry_brought_forward_ids" nolabel="1">
+                          <tree string="Entries" editable="bottom">
+                                <field name="course_id" options="{'no_create_edit': True}"/>
+                                <field name="name"/>
+                                <field name='semester_id' options="{'no_create_edit': True}"/>
+                                <field name='level_id' options="{'no_create_edit': True}"/>
+                                <field name="units" sum="Total Credit Registered"/>
+                          </tree>
+                      </field>
+                     </group>
+                    </page-->
+                </notebook>
+                <div class="oe_chatter">
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </sheet>
+        </form>
+     </field>
+ </record>
+  <record id="unizik_student_registration_view_search" model="ir.ui.view">
+            <field name="name">student.registration.search</field>
+            <field name="model">student.registration</field>
+            <field name="arch" type="xml">
+                <search string="Search Registration">
+                    <field name="entry_date"/>
+                    <field name="student_id" string="Student"/>
+                    <field name="matriculation_number"/>
+                </search>
+            </field>
+    </record>
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="unizik_student_registrations_action_window">
+      <field name="name">Student Registrations</field>
+      <field name="res_model">student.registration</field>
+      <field name="search_view_id" ref="unizik_student_registration_view_search" />
+      <field name="view_mode">tree,form</field>
+    </record>
+  </data>
+</odoo>
+
+
+
+
+
+

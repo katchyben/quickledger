@@ -1,0 +1,1635 @@
+<odoo>
+    <data>
+        <record id="unizik" model="quickledger.school">
+            <field name="name">Nnamdi Azikiwe University</field>
+            <field name="code">0672</field>
+            <field name="city">Awka</field>
+            <field name="street">Nnamdi Azikiwe University, Awka</field>
+            <field name="street2"></field>
+            <field name="website">www.unizik.edu.ng</field>
+            <field name="email">info@unizik.edu.ng</field>
+            <field name="phone"></field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="currency_id" ref="base.NGN"/>
+        </record>
+        <record id="base.lang_en" model="res.lang">
+            <field name="date_format">%d-%b-%Y</field>
+        </record>
+
+        <record id="base.NGN" model="res.currency">
+            <field name="active" eval="True"/>
+            <field name="position">before</field>
+        </record>
+
+        <record id="first_semester" model="quickledger.semester">
+            <field name="sequence">1</field>
+            <field name='code'>1st</field>
+            <field name="name">First Semester</field>
+        </record>
+        <record id="second_semester" model="quickledger.semester">
+            <field name="sequence">2</field>
+            <field name='code'>2nd</field>
+            <field name="name">Second Semester</field>
+        </record>
+
+        <!-- Banks -->
+        <record id="ecobank" model="res.bank">
+            <field name="name">Ecobank International Plc</field>
+        </record>
+        <record id="gtbank" model="res.bank">
+            <field name="name">GTBank</field>
+        </record>
+        <record id="uba" model="res.bank">
+            <field name="name">UBA</field>
+        </record>
+        <record id="zenith" model="res.bank">
+            <field name="name">Zenith Bank</field>
+        </record>
+
+        <!-- Science -->
+        <record id="science" model="quickledger.faculty.classification">
+            <field name="name">Science</field>
+            <field name="code">Science</field>
+        </record>
+        <!-- Arts -->
+        <record id="arts" model="quickledger.faculty.classification">
+            <field name="name">Arts</field>
+            <field name="code">Arts</field>
+        </record>
+
+        <!-- Diploma Type-->
+        <record id="first" model="quickledger.diploma.type">
+            <field name="code">First</field>
+            <field name="name">First Degree</field>
+        </record>
+        <record id="second" model="quickledger.diploma.type">
+            <field name="code">Second</field>
+            <field name="name">Postgraduate Degree</field>
+        </record>
+        <record id="doctorate" model="quickledger.diploma.type">
+            <field name="code">Doctorate</field>
+            <field name="name">Doctorate Degree</field>
+        </record>
+
+        <!-- Diploma-->
+        <record id="bsc" model="quickledger.diploma">
+            <field name="code">B.Sc</field>
+            <field name="name">Bachelor of Science</field>
+            <field name="type_id" ref="first"/>
+        </record>
+        <record id="bagric" model="quickledger.diploma">
+            <field name="code">B.Agric</field>
+            <field name="name">Bachelor of Agriculture</field>
+            <field name="type_id" ref="first"/>
+        </record>
+        <record id="ba" model="quickledger.diploma">
+            <field name="code">BA</field>
+            <field name="name">Bachelor of Arts</field>
+            <field name="type_id" ref="first"/>
+        </record>
+        <record id="be" model="quickledger.diploma">
+            <field name="code">B.Ed</field>
+            <field name="name">Bachelor of Education</field>
+            <field name="type_id" ref="first"/>
+        </record>
+        <record id="bse" model="quickledger.diploma">
+            <field name="code">B.Sc(Ed)</field>
+            <field name="name">Bachelor of Science(Education)</field>
+            <field name="type_id" ref="first"/>
+        </record>
+        <record id="beng" model="quickledger.diploma">
+            <field name="code">B.Eng</field>
+            <field name="name">Bachelor of Engineer</field>
+            <field name="type_id" ref="first"/>
+        </record>
+         <record id="mbbs" model="quickledger.diploma">
+            <field name="code">MBBS</field>
+            <field name="name">Bachelor of Medicine, Bachelor of Surgery</field>
+             <field name="type_id" ref="first"/>
+         </record>
+        <record id="bpharm" model="quickledger.diploma">
+            <field name="code">B.Pharm</field>
+            <field name="name">Bachelor of Pharmacy</field>
+            <field name="type_id" ref="first"/>
+        </record>
+        <record id="llb" model="quickledger.diploma">
+            <field name="code">LLB</field>
+            <field name="name">Bachelor of Laws</field>
+            <field name="type_id" ref="first"/>
+        </record>
+        <record id="meng" model="quickledger.diploma">
+            <field name="code">M.Eng</field>
+            <field name="name">Master of Engineer</field>
+            <field name="type_id" ref="second"/>
+        </record>
+        <record id="ma" model="quickledger.diploma">
+            <field name="code">MA</field>
+            <field name="name">Master of Arts</field>
+            <field name="type_id" ref="second"/>
+        </record>
+        <record id="msc" model="quickledger.diploma">
+            <field name="code">M.Sc</field>
+            <field name="name">Master of Science</field>
+            <field name="type_id" ref="second"/>
+        </record>
+        <record id="phd" model="quickledger.diploma">
+            <field name="code">Phd</field>
+            <field name="name">Doctor of Philosophy</field>
+            <field name="type_id" ref="doctorate"/>
+        </record>
+
+        <!-- Honour Scheme -->
+        <record id="first_class" model="quickledger.honour">
+            <field name="name">First Class</field>
+            <field name="description">First Class Honours</field>
+            <field name="upper_bound">5.0</field>
+            <field name="lower_bound">4.50</field>
+        </record>
+        <record id="second_upper" model="quickledger.honour">
+            <field name="name">Second Class Upper Division</field>
+            <field name="description">Second Class Upper Honours</field>
+            <field name="upper_bound">4.49</field>
+            <field name="lower_bound">3.50</field>
+        </record>
+        <record id="second_lower" model="quickledger.honour">
+            <field name="name">Second Class Lower Division</field>
+            <field name="description">Second Class Lower Honours</field>
+            <field name="upper_bound">3.49</field>
+            <field name="lower_bound">2.40</field>
+        </record>
+        <record id="third" model="quickledger.honour">
+            <field name="name">Third Class</field>
+            <field name="description">Third Class</field>
+            <field name="upper_bound">2.39</field>
+            <field name="lower_bound">1.50</field>
+        </record>
+        <record id="pass" model="quickledger.honour">
+            <field name="name">Pass</field>
+            <field name="description">Fail</field>
+            <field name="upper_bound">1.49</field>
+            <field name="lower_bound">1.00</field>
+        </record>
+
+
+        <!--  Faculties  -->
+         <record id="agriculture" model="quickledger.faculty">
+            <field name="name">Faculty of Agriculture</field>
+            <field name="code">Agriculture</field>
+            <field name="school_id" ref="unizik"/>
+            <field name="classification_id" ref="science"/>
+        </record>
+         <record id="arts" model="quickledger.faculty">
+            <field name="name">Faculty of Arts</field>
+            <field name="code">Arts</field>
+            <field name="school_id" ref="unizik"/>
+            <field name="classification_id" ref="arts"/>
+        </record>
+         <record id="basic" model="quickledger.faculty">
+            <field name="name">Faculty of Basic Medical Sciences</field>
+            <field name="code">Basic Medical Sciences</field>
+            <field name="school_id" ref="unizik"/>
+            <field name="classification_id" ref="science"/>
+        </record>
+         <record id="bioscience" model="quickledger.faculty">
+            <field name="name">Faculty of Biosciences</field>
+            <field name="code">Biosciences</field>
+            <field name="school_id" ref="unizik"/>
+            <field name="classification_id" ref="science"/>
+        </record>
+        <record id="education" model="quickledger.faculty">
+            <field name="name">Faculty of Education</field>
+            <field name="code">Education</field>
+            <field name="school_id" ref="unizik"/>
+            <field name="classification_id" ref="arts"/>
+        </record>
+        <record id="engineering" model="quickledger.faculty">
+            <field name="name">Faculty of Engineering</field>
+            <field name="code">Engineering</field>
+            <field name="school_id" ref="unizik"/>
+            <field name="classification_id" ref="science"/>
+        </record>
+        <record id="environmental" model="quickledger.faculty">
+            <field name="name">Faculty of Environmental Sciences</field>
+            <field name="code">Environmental Sciences</field>
+            <field name="school_id" ref="unizik"/>
+            <field name="classification_id" ref="science"/>
+        </record>
+        <record id="health" model="quickledger.faculty">
+            <field name="name">Faculty of Health Sciences and Technology</field>
+            <field name="code">Health Science &amp; Technology</field>
+            <field name="school_id" ref="unizik"/>
+            <field name="classification_id" ref="science"/>
+        </record>
+         <record id="law" model="quickledger.faculty">
+            <field name="name">Faculty of Law</field>
+            <field name="code">Law</field>
+            <field name="school_id" ref="unizik"/>
+            <field name="classification_id" ref="arts"/>
+        </record>
+         <record id="management" model="quickledger.faculty">
+            <field name="name">Faculty of Management Sciences</field>
+            <field name="code">Management Science</field>
+            <field name="school_id" ref="unizik"/>
+            <field name="classification_id" ref="arts"/>
+        </record>
+         <record id="medicine" model="quickledger.faculty">
+            <field name="name">Faculty of Medicine</field>
+            <field name="code">Medicine</field>
+            <field name="school_id" ref="unizik"/>
+            <field name="classification_id" ref="science"/>
+        </record>
+        <record id="pharm" model="quickledger.faculty">
+            <field name="name">Faculty of Pharmaceutical Sciences</field>
+            <field name="code">Pharmaceutical Sciences</field>
+            <field name="school_id" ref="unizik"/>
+            <field name="classification_id" ref="science"/>
+        </record>
+        <record id="physical" model="quickledger.faculty">
+            <field name="name">Faculty of Physical Sciences</field>
+            <field name="code">Faculty of Physical Sciences</field>
+            <field name="school_id" ref="unizik"/>
+            <field name="classification_id" ref="science"/>
+        </record>
+         <record id="social" model="quickledger.faculty">
+            <field name="name">Faculty of Social Sciences</field>
+            <field name="code">Faculty of Social Sciences</field>
+            <field name="school_id" ref="unizik"/>
+            <field name="classification_id" ref="science"/>
+        </record>
+
+        <!-- Departments for Engineering -->
+        <record id="eee_dept" model="quickledger.department">
+            <field name="name">Electrical Engineering</field>
+            <field name="code">ELE</field>
+            <field name="faculty_id" ref="engineering"/>
+            <field eval="[(4, ref('beng')),(4, ref('meng'))]" name="diploma_ids"/>
+        </record>
+        <record id="mec_dept" model="quickledger.department">
+            <field name="name">Mechanical Engineering</field>
+            <field name="code">MEC</field>
+            <field name="faculty_id" ref="engineering"/>
+            <field eval="[(4, ref('beng')),(4, ref('meng'))]" name="diploma_ids"/>
+        </record>
+        <record id="che_dept" model="quickledger.department">
+            <field name="name">Chemical Engineering</field>
+            <field name="code">CHE</field>
+            <field name="faculty_id" ref="engineering"/>
+            <field eval="[(4, ref('beng')),(4, ref('meng'))]" name="diploma_ids"/>
+        </record>
+        <record id="cve_dept" model="quickledger.department">
+            <field name="name">Civil Engineering</field>
+            <field name="code">CVE</field>
+            <field name="faculty_id" ref="engineering"/>
+            <field eval="[(4, ref('beng')),(4, ref('meng'))]" name="diploma_ids"/>
+        </record>
+        <record id="mme_dept" model="quickledger.department">
+            <field name="name">Department of Metallurgical &amp; Materials Engineering</field>
+            <field name="code">MME</field>
+            <field name="faculty_id" ref="engineering"/>
+            <field eval="[(4, ref('beng')),(4, ref('meng'))]" name="diploma_ids"/>
+        </record>
+        <record id="ece_dept" model="quickledger.department">
+            <field name="name">Electronic and Computer Engineering</field>
+            <field name="code">ECE</field>
+            <field name="faculty_id" ref="engineering"/>
+            <field eval="[(4, ref('beng')),(4, ref('meng'))]" name="diploma_ids"/>
+        </record>
+        <record id="ipe_dept" model="quickledger.department">
+            <field name="name">Industrial/Production Engineering</field>
+            <field name="code">IPE</field>
+            <field name="faculty_id" ref="engineering"/>
+            <field eval="[(4, ref('beng')),(4, ref('meng'))]" name="diploma_ids"/>
+        </record>
+        <record id="cve_dept" model="quickledger.department">
+            <field name="name">Civil Engineering</field>
+            <field name="code">CVE</field>
+            <field name="faculty_id" ref="engineering"/>
+            <field eval="[(4, ref('beng')),(4, ref('meng'))]" name="diploma_ids"/>
+        </record>
+        <record id="pte_dept" model="quickledger.department">
+            <field name="name">Polymer and Textile Engineering</field>
+            <field name="code">PTE</field>
+            <field name="faculty_id" ref="engineering"/>
+            <field eval="[(4, ref('beng')),(4, ref('meng'))]" name="diploma_ids"/>
+        </record>
+         <record id="abe_dept" model="quickledger.department">
+            <field name="name">Agriculture and Bio-resources Engineering</field>
+            <field name="code">ABE</field>
+            <field name="faculty_id" ref="engineering"/>
+            <field eval="[(4, ref('beng')),(4, ref('meng'))]" name="diploma_ids"/>
+        </record>
+
+
+        <!-- Departments for Agriculture -->
+        <record id="aee_dept" model="quickledger.department">
+            <field name="name">Agricultural Economics and Extension</field>
+            <field name="code">AEE</field>
+            <field name="faculty_id" ref="agriculture"/>
+            <field eval="[(4, ref('bagric'))]" name="diploma_ids"/>
+        </record>
+        <record id="ast_dept" model="quickledger.department">
+            <field name="name">Animal Science and Technology</field>
+            <field name="code">AST</field>
+            <field name="faculty_id" ref="agriculture"/>
+            <field eval="[(4, ref('bagric'))]" name="diploma_ids"/>
+        </record>
+        <record id="csh_dept" model="quickledger.department">
+            <field name="name">Crop Science and Horticulture</field>
+            <field name="code">CSH</field>
+            <field name="faculty_id" ref="agriculture"/>
+            <field eval="[(4, ref('bagric'))]" name="diploma_ids"/>
+        </record>
+        <record id="fia_dept" model="quickledger.department">
+            <field name="name">Fisheries and Aquaculture</field>
+            <field name="code">FIA</field>
+            <field name="faculty_id" ref="agriculture"/>
+            <field eval="[(4, ref('bagric'))]" name="diploma_ids"/>
+        </record>
+        <record id="fst_dept" model="quickledger.department">
+            <field name="name">Food Science and Technology</field>
+            <field name="code">FST</field>
+            <field name="faculty_id" ref="agriculture"/>
+            <field eval="[(4, ref('bsc'))]" name="diploma_ids"/>
+        </record>
+        <record id="fwm_dept" model="quickledger.department">
+            <field name="name">Forestry and Wildlife Management</field>
+            <field name="code">FWM</field>
+            <field name="faculty_id" ref="agriculture"/>
+            <field eval="[(4, ref('bagric'))]" name="diploma_ids"/>
+        </record>
+        <record id="ssl_dept" model="quickledger.department">
+            <field name="name">Soil Science and Land Resources Management</field>
+            <field name="code">SSL</field>
+            <field name="faculty_id" ref="agriculture"/>
+            <field eval="[(4, ref('bsc')),(4, ref('msc'))]" name="diploma_ids"/>
+        </record>
+
+        <!-- Faculty of Arts -->
+        <record id="enl_dept" model="quickledger.department">
+            <field name="name">English Language and Literature</field>
+            <field name="code">ENL</field>
+            <field name="faculty_id" ref="arts"/>
+            <field eval="[(4, ref('ba'))]" name="diploma_ids"/>
+        </record>
+        <record id="his_dept" model="quickledger.department">
+            <field name="name">History and International Studies</field>
+            <field name="code">HIS</field>
+            <field name="faculty_id" ref="arts"/>
+            <field eval="[(4, ref('ba'))]" name="diploma_ids"/>
+        </record>
+         <record id="iaa_dept" model="quickledger.department">
+            <field name="name">Igbo, African and Asian Studies</field>
+            <field name="code">IAA</field>
+            <field name="faculty_id" ref="arts"/>
+            <field eval="[(4, ref('ba'))]" name="diploma_ids"/>
+        </record>
+        <record id="lig_dept" model="quickledger.department">
+            <field name="name">Linguistics</field>
+            <field name="code">LIG</field>
+            <field name="faculty_id" ref="arts"/>
+            <field eval="[(4, ref('ba'))]" name="diploma_ids"/>
+        </record>
+        <record id="mel_dept" model="quickledger.department">
+            <field name="name">Modern European Languages</field>
+            <field name="code">MEL</field>
+            <field name="faculty_id" ref="arts"/>
+            <field eval="[(4, ref('ba'))]" name="diploma_ids"/>
+        </record>
+        <record id="mus_dept" model="quickledger.department">
+            <field name="name">Music</field>
+            <field name="code">MUS</field>
+            <field name="faculty_id" ref="arts"/>
+            <field eval="[(4, ref('ba'))]" name="diploma_ids"/>
+        </record>
+         <record id="phy_dept" model="quickledger.department">
+            <field name="name">Philosophy</field>
+            <field name="code">PHY</field>
+            <field name="faculty_id" ref="arts"/>
+            <field eval="[(4, ref('ba'))]" name="diploma_ids"/>
+        </record>
+         <record id="rhr_dept" model="quickledger.department">
+            <field name="name">Religion and Human Relations</field>
+            <field name="code">RHR</field>
+            <field name="faculty_id" ref="arts"/>
+            <field eval="[(4, ref('ba'))]" name="diploma_ids"/>
+        </record>
+        <record id="tfs_dept" model="quickledger.department">
+            <field name="name">Theatre and Film Studies</field>
+            <field name="code">TFS</field>
+            <field name="faculty_id" ref="arts"/>
+            <field eval="[(4, ref('ba'))]" name="diploma_ids"/>
+        </record>
+         <record id="chn_dept" model="quickledger.department">
+            <field name="name">Chinese</field>
+            <field name="code">CHN</field>
+            <field name="faculty_id" ref="arts"/>
+            <field eval="[(4, ref('ba'))]" name="diploma_ids"/>
+        </record>
+
+         <!-- Faculty of Basic Medical Sciences -->
+        <record id="ana_dept" model="quickledger.department">
+            <field name="name">Anatomy</field>
+            <field name="code">ANA</field>
+            <field name="faculty_id" ref="basic"/>
+            <field eval="[(4, ref('bsc'))]" name="diploma_ids"/>
+        </record>
+        <record id="hpy_dept" model="quickledger.department">
+            <field name="name">Human Physiology</field>
+            <field name="code">HPY</field>
+            <field name="faculty_id" ref="basic"/>
+            <field eval="[(4, ref('bsc'))]" name="diploma_ids"/>
+        </record>
+
+        <!-- Faculty of Bioscience -->
+         <record id="amb_dept" model="quickledger.department">
+            <field name="name">Applied Microbiology &amp; Brewing</field>
+            <field name="code">AMB</field>
+            <field name="faculty_id" ref="bioscience"/>
+            <field eval="[(4, ref('bsc'))]" name="diploma_ids"/>
+        </record>
+        <record id="bio_dept" model="quickledger.department">
+            <field name="name">Applied Biochemistry</field>
+            <field name="code">BIO</field>
+            <field name="faculty_id" ref="bioscience"/>
+            <field eval="[(4, ref('bsc'))]" name="diploma_ids"/>
+        </record>
+        <record id="pae_dept" model="quickledger.department">
+            <field name="name">Parasitology and Entomology</field>
+            <field name="code">PAE</field>
+            <field name="faculty_id" ref="bioscience"/>
+            <field eval="[(4, ref('bsc'))]" name="diploma_ids"/>
+        </record>
+        <record id="zoo_dept" model="quickledger.department">
+            <field name="name">Zoology</field>
+            <field name="code">ZOO</field>
+            <field name="faculty_id" ref="bioscience"/>
+            <field eval="[(4, ref('bsc'))]" name="diploma_ids"/>
+        </record>
+        <record id="bot_dept" model="quickledger.department">
+            <field name="name">Botany</field>
+            <field name="code">BOT</field>
+            <field name="faculty_id" ref="bioscience"/>
+            <field eval="[(4, ref('bsc'))]" name="diploma_ids"/>
+        </record>
+        
+        <!--Faculty of Education-->
+        <record id="ade_dept" model="quickledger.department">
+            <field name="name">Adult Education</field>
+            <field name="code">ADE</field>
+            <field name="faculty_id" ref="education"/>
+            <field eval="[(4, ref('be'))]" name="diploma_ids"/>
+        </record>
+        <record id="hhe_dept" model="quickledger.department">
+            <field name="name">Human Kinetics and Health Education</field>
+            <field name="code">HHE</field>
+            <field name="faculty_id" ref="education"/>
+            <field eval="[(4, ref('be'))]" name="diploma_ids"/>
+        </record>
+        <record id="gac_dept" model="quickledger.department">
+            <field name="name">Guidance and Counselling</field>
+            <field name="code">GAC</field>
+            <field name="faculty_id" ref="education"/>
+            <field eval="[(4, ref('be'))]" name="diploma_ids"/>
+        </record>
+        <record id="sce_dept" model="quickledger.department">
+            <field name="name">Science Education</field>
+            <field name="code">SCE</field>
+            <field name="faculty_id" ref="education"/>
+            <field eval="[(4, ref('be'))]" name="diploma_ids"/>
+        </record>
+        <record id="emp_dept" model="quickledger.department">
+            <field name="name">Education Management and Policy</field>
+            <field name="code">EMP</field>
+            <field name="faculty_id" ref="education"/>
+            <field eval="[(4, ref('be'))]" name="diploma_ids"/>
+        </record>
+        <record id="ecp_dept" model="quickledger.department">
+            <field name="name">Early Childhood and Primary Education</field>
+            <field name="code">ECP</field>
+            <field name="faculty_id" ref="education"/>
+            <field eval="[(4, ref('be'))]" name="diploma_ids"/>
+        </record>
+        <record id="lis_dept" model="quickledger.department">
+            <field name="name">Library and Information Science</field>
+            <field name="code">LIS</field>
+            <field name="faculty_id" ref="education"/>
+            <field eval="[(4, ref('be'))]" name="diploma_ids"/>
+        </record>
+        <record id="edf_dept" model="quickledger.department">
+            <field name="name">Education Foundations</field>
+            <field name="code">EDF</field>
+            <field name="faculty_id" ref="education"/>
+            <field eval="[(4, ref('be'))]" name="diploma_ids"/>
+        </record>
+
+        <!--Faculty of Law-->
+        <record id="cpl_dept" model="quickledger.department">
+            <field name="name">Commercial and Property Law</field>
+            <field name="code">CPL</field>
+            <field name="faculty_id" ref="law"/>
+            <field eval="[(4, ref('llb'))]" name="diploma_ids"/>
+        </record>
+        <record id="ilj_dept" model="quickledger.department">
+            <field name="name">International Law and Jurisprudence</field>
+            <field name="code">ILJ</field>
+            <field name="faculty_id" ref="law"/>
+            <field eval="[(4, ref('llb'))]" name="diploma_ids"/>
+        </record>
+        <record id="ppl_dept" model="quickledger.department">
+            <field name="name">Public and Private Law</field>
+            <field name="code">PPL</field>
+            <field name="faculty_id" ref="law"/>
+            <field eval="[(4, ref('llb'))]" name="diploma_ids"/>
+        </record>
+       
+        <!--Faculty of Environmental Sciences -->
+        <record id="architecture_dept" model="quickledger.department">
+            <field name="name">Architecture</field>
+            <field name="code">ARC</field>
+            <field name="faculty_id" ref="environmental"/>
+            <field eval="[(4, ref('bsc'))]" name="diploma_ids"/>
+        </record>
+        <record id="bld_dept" model="quickledger.department">
+            <field name="name">Building</field>
+            <field name="code">BLD</field>
+            <field name="faculty_id" ref="environmental"/>
+            <field eval="[(4, ref('bsc'))]" name="diploma_ids"/>
+        </record>
+        <record id="enm_dept" model="quickledger.department">
+            <field name="name">Environmental Management</field>
+            <field name="code">ENM</field>
+            <field name="faculty_id" ref="environmental"/>
+            <field eval="[(4, ref('bsc'))]" name="diploma_ids"/>
+        </record>
+        <record id="faa_dept" model="quickledger.department">
+            <field name="name">Fine and Applied Arts</field>
+            <field name="code">FAA</field>
+            <field name="faculty_id" ref="environmental"/>
+            <field eval="[(4, ref('bsc'))]" name="diploma_ids"/>
+        </record>
+        <record id="esm_dept" model="quickledger.department">
+            <field name="name">Estate Management</field>
+            <field name="code">ESM</field>
+            <field name="faculty_id" ref="environmental"/>
+            <field eval="[(4, ref('bsc'))]" name="diploma_ids"/>
+        </record>
+        <record id="gam_dept" model="quickledger.department">
+            <field name="name">Geography and Meteorology</field>
+            <field name="code">GAM</field>
+            <field name="faculty_id" ref="environmental"/>
+            <field eval="[(4, ref('bsc'))]" name="diploma_ids"/>
+        </record>
+        <record id="qus_dept" model="quickledger.department">
+            <field name="name">Quantity Surveying</field>
+            <field name="code">QUS</field>
+            <field name="faculty_id" ref="environmental"/>
+            <field eval="[(4, ref('bsc'))]" name="diploma_ids"/>
+        </record>
+        <record id="sug_dept" model="quickledger.department">
+            <field name="name">Surveying and Geo-informatics</field>
+            <field name="code">SUG</field>
+            <field name="faculty_id" ref="environmental"/>
+            <field eval="[(4, ref('bsc'))]" name="diploma_ids"/>
+        </record>
+
+        <!--Faculty of Health Sciences and Technology -->
+        <record id="mls_dept" model="quickledger.department">
+            <field name="name">Medical Laboratory Science</field>
+            <field name="code">MLS</field>
+            <field name="faculty_id" ref="health"/>
+            <field eval="[(4, ref('bsc'))]" name="diploma_ids"/>
+        </record>
+        <record id="mer_dept" model="quickledger.department">
+            <field name="name">Medical Rehabilitation</field>
+            <field name="code">MER</field>
+            <field name="faculty_id" ref="health"/>
+            <field eval="[(4, ref('bsc'))]" name="diploma_ids"/>
+        </record>
+        <record id="nus_dept" model="quickledger.department">
+            <field name="name">Nursing Science</field>
+            <field name="code">NUS</field>
+            <field name="faculty_id" ref="health"/>
+            <field eval="[(4, ref('bsc'))]" name="diploma_ids"/>
+        </record>
+        <record id="rrs_dept" model="quickledger.department">
+            <field name="name">Radiography and Radiological Science</field>
+            <field name="code">RRS</field>
+            <field name="faculty_id" ref="health"/>
+            <field eval="[(4, ref('bsc'))]" name="diploma_ids"/>
+        </record>
+
+        <!--Faculty of Management Sciences -->
+        <record id="acc_dept" model="quickledger.department">
+            <field name="name">Accountancy</field>
+            <field name="code">ACC</field>
+            <field name="faculty_id" ref="management"/>
+            <field eval="[(4, ref('bsc'))]" name="diploma_ids"/>
+        </record>
+        <record id="bfn_dept" model="quickledger.department">
+            <field name="name">Banking and Finance</field>
+            <field name="code">BFN</field>
+            <field name="faculty_id" ref="management"/>
+            <field eval="[(4, ref('bsc'))]" name="diploma_ids"/>
+        </record>
+        <record id="bus_dept" model="quickledger.department">
+            <field name="name">Business Administration</field>
+            <field name="code">BUS</field>
+            <field name="faculty_id" ref="management"/>
+            <field eval="[(4, ref('bsc'))]" name="diploma_ids"/>
+        </record>
+        <record id="cem_dept" model="quickledger.department">
+            <field name="name">Cooperative Economics and Management</field>
+            <field name="code">CEM</field>
+            <field name="faculty_id" ref="management"/>
+            <field eval="[(4, ref('bsc'))]" name="diploma_ids"/>
+        </record>
+        <record id="mrt_dept" model="quickledger.department">
+            <field name="name">Marketing</field>
+            <field name="code">MRT</field>
+            <field name="faculty_id" ref="management"/>
+            <field eval="[(4, ref('bsc'))]" name="diploma_ids"/>
+        </record>
+        <record id="pub_dept" model="quickledger.department">
+            <field name="name">Public Administration</field>
+            <field name="code">PUB</field>
+            <field name="faculty_id" ref="management"/>
+            <field eval="[(4, ref('bsc'))]" name="diploma_ids"/>
+        </record>
+        <record id="ens_dept" model="quickledger.department">
+            <field name="name">Entrepreneurial Studies</field>
+            <field name="code">ENS</field>
+            <field name="faculty_id" ref="management"/>
+            <field eval="[(4, ref('bsc'))]" name="diploma_ids"/>
+        </record>
+
+
+        <!--Faculty of Medicine -->
+        <record id="med_dept" model="quickledger.department">
+            <field name="name">Medicine/Surgery</field>
+            <field name="code">MED</field>
+            <field name="faculty_id" ref="medicine"/>
+            <field eval="[(4, ref('mbbs'))]" name="diploma_ids"/>
+        </record>
+
+
+         <!--Faculty of Pharm -->
+        <record id="mch_dept" model="quickledger.department">
+            <field name="name">Medicinal Chemistry</field>
+            <field name="code">MCH</field>
+            <field name="faculty_id" ref="pharm"/>
+            <field eval="[(4, ref('bpharm'))]" name="diploma_ids"/>
+        </record>
+        <record id="cpm_dept" model="quickledger.department">
+            <field name="name">Clinical Pharmacy &amp; Pharmacy Management</field>
+            <field name="code">CPM</field>
+            <field name="faculty_id" ref="pharm"/>
+            <field eval="[(4, ref('bpharm'))]" name="diploma_ids"/>
+        </record>
+        <record id="mib_dept" model="quickledger.department">
+            <field name="name">Microbiology and Biotechnology</field>
+            <field name="code">MIB</field>
+            <field name="faculty_id" ref="pharm"/>
+            <field eval="[(4, ref('bpharm'))]" name="diploma_ids"/>
+        </record>
+        <record id="pht_dept" model="quickledger.department">
+            <field name="name">Pharmaceutical Tech</field>
+            <field name="code">PHT</field>
+            <field name="faculty_id" ref="pharm"/>
+            <field eval="[(4, ref('bpharm'))]" name="diploma_ids"/>
+        </record>
+        <record id="phm_dept" model="quickledger.department">
+            <field name="name">Pharmacology and Toxicology</field>
+            <field name="code">PHM</field>
+            <field name="faculty_id" ref="pharm"/>
+            <field eval="[(4, ref('bpharm'))]" name="diploma_ids"/>
+        </record>
+        <record id="ptm_dept" model="quickledger.department">
+            <field name="name">Pharmacognosy &amp; Traditional Medicine</field>
+            <field name="code">PTM</field>
+            <field name="faculty_id" ref="pharm"/>
+            <field eval="[(4, ref('bpharm'))]" name="diploma_ids"/>
+        </record>
+
+
+        <!-- Sessions -->
+        <record id="2018_2019" model="academic.session">
+            <field name="sequence">8</field>
+            <field name="code">2018/2019</field>
+            <field name="name">2018/2019</field>
+        </record>
+        <record id="2017_2018" model="academic.session">
+            <field name="sequence">7</field>
+            <field name="code">2017/2018</field>
+            <field name="name">2017/2018</field>
+        </record>
+        <record id="2016_2017" model="academic.session">
+            <field name="sequence">5</field>
+            <field name="code">2016/2017</field>
+            <field name="name">2016/2017</field>
+        </record>
+        <record id="2015_2016" model="academic.session">
+            <field name="sequence">4</field>
+            <field name="code">2015/2016</field>
+            <field name="name">2015/2016</field>
+        </record>
+        <record id="2014_2015" model="academic.session">
+            <field name="sequence">3</field>
+            <field name="code">2014/2015</field>
+            <field name="name">2014/2015</field>
+        </record>
+        <record id="2013_2014" model="academic.session">
+            <field name="sequence">2</field>
+            <field name="code">2013/2014</field>
+            <field name="name">2013/2014</field>
+        </record>
+        <record id="2012_2013" model="academic.session">
+            <field name="sequence">1</field>
+            <field name="code">2012/2013</field>
+            <field name="name">2012/2013</field>
+        </record>
+
+        <!--Academic Grading Scheme-->
+        <record id="default_grading_system" model="quickledger.grading.scheme">
+            <field name="name">CGPA</field>
+            <field name="description">5 Points CGPA Scheme</field>
+        </record>
+        <record id="default_honour_system" model="quickledger.honour.scheme">
+            <field name="name">Default University Scheme</field>
+            <field name="description">NUC Approved Polytechnic Scheme</field>
+            <field name="honour_ids"
+                   eval="[(4, ref('first')),(4, ref('second_upper')),(4, ref('second_lower')),(4, ref('third')),(4, ref('pass'))]"/>
+        </record>
+        <record id="unizik" model="quickledger.school">
+            <field name="grading_scheme_id" ref="default_grading_system"/>
+            <field name="honour_scheme_id" ref="default_honour_system"/>
+            <field name="country_id" ref="base.ng"/>
+        </record>
+
+
+        <!-- Grades -->
+        <record id="a" model="quickledger.grade">
+            <field name="name">A</field>
+            <field name="point">5.00</field>
+            <field name="min_grade">70</field>
+            <field name="max_grade">100</field>
+            <field name="is_pass_mark">True</field>
+            <field name="grading_scheme_id" ref="default_grading_system"/>
+        </record>
+        <record id="b" model="quickledger.grade">
+            <field name="name">B</field>
+            <field name="point">4.00</field>
+            <field name="min_grade">60</field>
+            <field name="max_grade">69</field>
+            <field name="is_pass_mark">True</field>
+            <field name="grading_scheme_id" ref="default_grading_system"/>
+        </record>
+        <record id="c" model="quickledger.grade">
+            <field name="name">C</field>
+            <field name="point">3.00</field>
+            <field name="min_grade">50</field>
+            <field name="max_grade">59</field>
+            <field name="is_pass_mark">True</field>
+            <field name="grading_scheme_id" ref="default_grading_system"/>
+        </record>
+        <record id="d" model="quickledger.grade">
+            <field name="name">D</field>
+            <field name="point">2.00</field>
+            <field name="min_grade">45</field>
+            <field name="max_grade">49</field>
+            <field name="is_pass_mark">True</field>
+            <field name="grading_scheme_id" ref="default_grading_system"/>
+        </record>
+        <record id="e" model="quickledger.grade">
+            <field name="name">E</field>
+            <field name="point">1.00</field>
+            <field name="min_grade">40</field>
+            <field name="max_grade">44</field>
+            <field name="is_pass_mark">True</field>
+            <field name="grading_scheme_id" ref="default_grading_system"/>
+        </record>
+        <record id="f" model="quickledger.grade">
+            <field name="name">F</field>
+            <field name="point">0.00</field>
+            <field name="min_grade">0</field>
+            <field name="max_grade">39</field>
+            <field name="is_pass_mark">False</field>
+            <field name="grading_scheme_id" ref="default_grading_system"/>
+        </record>
+
+        
+
+        <!-- Entry Status-->
+        <record id="cep" model="quickledger.entry.status">
+            <field name="name">CEP</field>
+            <field name="code">CEP</field>
+        </record>
+        <record id="ume" model="quickledger.entry.status">
+            <field name="name">UME</field>
+            <field name="code">UME</field>
+        </record>
+        <record id="pg" model="quickledger.entry.status">
+            <field name="name">Post Graduate</field>
+            <field name="code">PG</field>
+        </record>
+
+
+        <!--Academic Position-->
+         <record id="senior_lecturer" model="quickledger.position">
+            <field name="name">Senior Lecturer</field>
+            <field name="description">Senior Lecturer</field>
+        </record>
+        <record id="lecturer_I" model="quickledger.position">
+            <field name="name">Lecturer I</field>
+            <field name="description">Lecturer I</field>
+        </record>
+         <record id="lecturer_II" model="quickledger.position">
+            <field name="name">Lecturer II</field>
+            <field name="description">Lecturer II</field>
+        </record>
+         <record id="lecturer_assistant" model="quickledger.position">
+            <field name="name">Assistant Lecturer</field>
+            <field name="description">Assistant Lecturer</field>
+        </record>
+        <record id="professor" model="quickledger.position">
+            <field name="name">Professor</field>
+            <field name="description">Professor</field>
+        </record>
+        <record id="reader" model="quickledger.position">
+            <field name="name">Reader</field>
+            <field name="description">Reader</field>
+        </record>
+
+
+        <!-- Academic Programme-->
+        <record id="beng_che" model="quickledger.programme">
+            <field name="department_id" ref="che_dept"/>
+            <field name="diploma_id" ref="beng"/>
+            <field name="faculty_id" ref="engineering"/>
+            <field name="duration">5</field> 
+        </record>
+        <record id="beng_eee" model="quickledger.programme">
+            <field name="department_id" ref="eee_dept"/>
+            <field name="diploma_id" ref="beng"/>
+            <field name="faculty_id" ref="engineering"/>
+            <field name="duration">5</field> 
+        </record>
+        <record id="beng_mec" model="quickledger.programme">
+            <field name="department_id" ref="mec_dept"/>
+            <field name="diploma_id" ref="beng"/>
+            <field name="faculty_id" ref="engineering"/>
+            <field name="duration">5</field> 
+        </record>
+         <record id="beng_cve" model="quickledger.programme">
+            <field name="department_id" ref="cve_dept"/>
+            <field name="diploma_id" ref="beng"/>
+            <field name="faculty_id" ref="engineering"/>
+            <field name="duration">5</field> 
+        </record>
+        <record id="beng_pte" model="quickledger.programme">
+            <field name="department_id" ref="pte_dept"/>
+            <field name="diploma_id" ref="beng"/>
+            <field name="faculty_id" ref="engineering"/>
+            <field name="duration">5</field> 
+        </record>
+        <record id="beng_abe" model="quickledger.programme">
+            <field name="department_id" ref="abe_dept"/>
+            <field name="diploma_id" ref="beng"/>
+            <field name="faculty_id" ref="engineering"/>
+            <field name="duration">5</field> 
+        </record>
+
+        <record id="bagric_aae" model="quickledger.programme">
+            <field name="department_id" ref="aee_dept"/>
+            <field name="diploma_id" ref="bagric"/>
+            <field name="faculty_id" ref="agriculture"/>
+            <field name="duration">5</field> 
+        </record>
+        <record id="bagric_ast" model="quickledger.programme">
+            <field name="department_id" ref="ast_dept"/>
+            <field name="diploma_id" ref="bagric"/>
+            <field name="faculty_id" ref="agriculture"/>
+            <field name="duration">5</field> 
+        </record>
+         <record id="bagric_csh" model="quickledger.programme">
+            <field name="department_id" ref="csh_dept"/>
+            <field name="diploma_id" ref="bagric"/>
+            <field name="faculty_id" ref="agriculture"/>
+            <field name="duration">5</field> 
+        </record>
+         <record id="bagric_fia" model="quickledger.programme">
+            <field name="department_id" ref="fia_dept"/>
+            <field name="diploma_id" ref="bagric"/>
+            <field name="faculty_id" ref="agriculture"/>
+        </record>
+         <record id="bagric_fst" model="quickledger.programme">
+            <field name="department_id" ref="fst_dept"/>
+            <field name="diploma_id" ref="bagric"/>
+            <field name="faculty_id" ref="agriculture"/>
+            <field name="duration">5</field> 
+        </record>
+         <record id="bagric_ssl" model="quickledger.programme">
+            <field name="department_id" ref="ssl_dept"/>
+            <field name="diploma_id" ref="bagric"/>
+            <field name="faculty_id" ref="agriculture"/>
+            <field name="duration">5</field> 
+        </record>
+         <record id="bagric_fwm" model="quickledger.programme">
+            <field name="department_id" ref="fwm_dept"/>
+            <field name="diploma_id" ref="bagric"/>
+            <field name="faculty_id" ref="agriculture"/>
+            <field name="duration">5</field> 
+        </record>
+
+        <record id="ba_enl" model="quickledger.programme">
+            <field name="department_id" ref="enl_dept"/>
+            <field name="diploma_id" ref="ba"/>
+            <field name="faculty_id" ref="arts"/>
+        </record>
+        <record id="ba_his" model="quickledger.programme">
+            <field name="department_id" ref="his_dept"/>
+            <field name="diploma_id" ref="ba"/>
+            <field name="faculty_id" ref="arts"/>
+        </record>
+        <record id="ba_iaa" model="quickledger.programme">
+            <field name="department_id" ref="iaa_dept"/>
+            <field name="diploma_id" ref="ba"/>
+            <field name="faculty_id" ref="arts"/>
+        </record>
+         <record id="ba_mel" model="quickledger.programme">
+            <field name="department_id" ref="mel_dept"/>
+            <field name="diploma_id" ref="ba"/>
+            <field name="faculty_id" ref="arts"/>
+        </record>
+        <record id="ba_mus" model="quickledger.programme">
+            <field name="department_id" ref="mus_dept"/>
+            <field name="diploma_id" ref="ba"/>
+            <field name="faculty_id" ref="arts"/>
+        </record>
+        <record id="ba_phy" model="quickledger.programme">
+            <field name="department_id" ref="phy_dept"/>
+            <field name="diploma_id" ref="ba"/>
+            <field name="faculty_id" ref="arts"/>
+        </record>
+         <record id="ba_rhr" model="quickledger.programme">
+            <field name="department_id" ref="rhr_dept"/>
+            <field name="diploma_id" ref="ba"/>
+            <field name="faculty_id" ref="arts"/>
+        </record>
+        <record id="ba_tfs" model="quickledger.programme">
+            <field name="department_id" ref="tfs_dept"/>
+            <field name="diploma_id" ref="ba"/>
+            <field name="faculty_id" ref="arts"/>
+        </record>
+        <record id="ba_chn" model="quickledger.programme">
+            <field name="department_id" ref="chn_dept"/>
+            <field name="diploma_id" ref="ba"/>
+            <field name="faculty_id" ref="arts"/>
+        </record>
+        <record id="bsc_ana" model="quickledger.programme">
+            <field name="department_id" ref="ana_dept"/>
+            <field name="diploma_id" ref="bsc"/>
+            <field name="faculty_id" ref="basic"/>
+        </record>
+        <record id="bsc_hpy" model="quickledger.programme">
+            <field name="department_id" ref="hpy_dept"/>
+            <field name="diploma_id" ref="bsc"/>
+            <field name="faculty_id" ref="basic"/>
+        </record>
+        <record id="bsc_bio" model="quickledger.programme">
+            <field name="department_id" ref="bio_dept"/>
+            <field name="diploma_id" ref="bsc"/>
+            <field name="faculty_id" ref="bioscience"/>
+        </record>
+        <record id="bsc_zoo" model="quickledger.programme">
+            <field name="department_id" ref="zoo_dept"/>
+            <field name="diploma_id" ref="bsc"/>
+            <field name="faculty_id" ref="bioscience"/>
+        </record>
+       <record id="bsc_pae" model="quickledger.programme">
+            <field name="department_id" ref="pae_dept"/>
+            <field name="diploma_id" ref="bsc"/>
+            <field name="faculty_id" ref="bioscience"/>
+        </record>
+
+        <record id="be_ade" model="quickledger.programme">
+            <field name="department_id" ref="ade_dept"/>
+            <field name="diploma_id" ref="be"/>
+            <field name="faculty_id" ref="education"/>
+        </record>
+        <record id="be_hhe" model="quickledger.programme">
+            <field name="department_id" ref="hhe_dept"/>
+            <field name="diploma_id" ref="be"/>
+            <field name="faculty_id" ref="education"/>
+        </record>
+        <record id="be_gac" model="quickledger.programme">
+            <field name="department_id" ref="gac_dept"/>
+            <field name="diploma_id" ref="be"/>
+            <field name="faculty_id" ref="education"/>
+        </record>
+        <record id="be_sce" model="quickledger.programme">
+            <field name="department_id" ref="sce_dept"/>
+            <field name="diploma_id" ref="be"/>
+            <field name="faculty_id" ref="education"/>
+        </record>
+        <record id="be_emp" model="quickledger.programme">
+            <field name="department_id" ref="emp_dept"/>
+            <field name="diploma_id" ref="be"/>
+            <field name="faculty_id" ref="education"/>
+        </record>
+        <record id="be_ecp" model="quickledger.programme">
+            <field name="department_id" ref="ecp_dept"/>
+            <field name="diploma_id" ref="be"/>
+            <field name="faculty_id" ref="education"/>
+        </record>
+       <record id="be_lis" model="quickledger.programme">
+            <field name="department_id" ref="lis_dept"/>
+            <field name="diploma_id" ref="be"/>
+            <field name="faculty_id" ref="education"/>
+        </record>
+        <record id="be_edf" model="quickledger.programme">
+            <field name="department_id" ref="edf_dept"/>
+            <field name="diploma_id" ref="be"/>
+            <field name="faculty_id" ref="education"/>
+        </record>
+
+
+        <record id="bsc_arc" model="quickledger.programme">
+            <field name="department_id" ref="architecture_dept"/>
+            <field name="diploma_id" ref="bsc"/>
+            <field name="faculty_id" ref="environmental"/>
+        </record>
+        <record id="bsc_bld" model="quickledger.programme">
+            <field name="department_id" ref="bld_dept"/>
+            <field name="diploma_id" ref="bsc"/>
+            <field name="faculty_id" ref="environmental"/>
+        </record>
+         <record id="bsc_bld" model="quickledger.programme">
+            <field name="department_id" ref="bld_dept"/>
+            <field name="diploma_id" ref="bsc"/>
+            <field name="faculty_id" ref="environmental"/>
+        </record>
+        <record id="bsc_enm" model="quickledger.programme">
+            <field name="department_id" ref="enm_dept"/>
+            <field name="diploma_id" ref="bsc"/>
+            <field name="faculty_id" ref="environmental"/>
+        </record>
+         <record id="bsc_faa" model="quickledger.programme">
+            <field name="department_id" ref="faa_dept"/>
+            <field name="diploma_id" ref="bsc"/>
+            <field name="faculty_id" ref="environmental"/>
+        </record>
+         <record id="bsc_sug" model="quickledger.programme">
+            <field name="department_id" ref="sug_dept"/>
+            <field name="diploma_id" ref="bsc"/>
+            <field name="faculty_id" ref="environmental"/>
+        </record>
+        <record id="bsc_gam" model="quickledger.programme">
+            <field name="department_id" ref="gam_dept"/>
+            <field name="diploma_id" ref="bsc"/>
+            <field name="faculty_id" ref="environmental"/>
+        </record>
+        <record id="bsc_qus" model="quickledger.programme">
+            <field name="department_id" ref="qus_dept"/>
+            <field name="diploma_id" ref="bsc"/>
+            <field name="faculty_id" ref="environmental"/>
+        </record>
+
+
+        <record id="bsc_mls" model="quickledger.programme">
+            <field name="department_id" ref="mls_dept"/>
+            <field name="diploma_id" ref="bsc"/>
+            <field name="faculty_id" ref="health"/>
+        </record>
+        <record id="bsc_mer" model="quickledger.programme">
+            <field name="department_id" ref="mer_dept"/>
+            <field name="diploma_id" ref="bsc"/>
+            <field name="faculty_id" ref="health"/>
+        </record>
+        <record id="bsc_nus" model="quickledger.programme">
+            <field name="department_id" ref="nus_dept"/>
+            <field name="diploma_id" ref="bsc"/>
+            <field name="faculty_id" ref="health"/>
+        </record>
+        <record id="bsc_rrs" model="quickledger.programme">
+            <field name="department_id" ref="rrs_dept"/>
+            <field name="diploma_id" ref="bsc"/>
+            <field name="faculty_id" ref="health"/>
+        </record>
+
+
+        <record id="bsc_acc" model="quickledger.programme">
+            <field name="department_id" ref="acc_dept"/>
+            <field name="diploma_id" ref="bsc"/>
+            <field name="faculty_id" ref="management"/>
+        </record>
+        <record id="bsc_bus" model="quickledger.programme">
+            <field name="department_id" ref="bus_dept"/>
+            <field name="diploma_id" ref="bsc"/>
+            <field name="faculty_id" ref="management"/>
+        </record>   
+        <record id="bsc_mrt" model="quickledger.programme">
+            <field name="department_id" ref="mrt_dept"/>
+            <field name="diploma_id" ref="bsc"/>
+            <field name="faculty_id" ref="management"/>
+        </record>
+        <record id="bsc_cem" model="quickledger.programme">
+            <field name="department_id" ref="cem_dept"/>
+            <field name="diploma_id" ref="bsc"/>
+            <field name="faculty_id" ref="management"/>
+        </record>
+        <record id="bsc_bfn" model="quickledger.programme">
+            <field name="department_id" ref="bfn_dept"/>
+            <field name="diploma_id" ref="bsc"/>
+            <field name="faculty_id" ref="management"/>
+        </record>
+         <record id="bsc_pub" model="quickledger.programme">
+            <field name="department_id" ref="pub_dept"/>
+            <field name="diploma_id" ref="bsc"/>
+            <field name="faculty_id" ref="management"/>
+        </record>
+        <record id="bsc_ens" model="quickledger.programme">
+            <field name="department_id" ref="ens_dept"/>
+            <field name="diploma_id" ref="bsc"/>
+            <field name="faculty_id" ref="management"/>
+        </record>
+        
+        <!-- Medicine -->
+        <record id="mbbs_med" model="quickledger.programme">
+            <field name="department_id" ref="med_dept"/>
+            <field name="diploma_id" ref="mbbs"/>
+            <field name="faculty_id" ref="medicine"/>
+            <field name="duration">6</field> 
+        </record>
+
+
+        <!-- Pharm Science -->
+        <record id="pharm_mch" model="quickledger.programme">
+            <field name="department_id" ref="mch_dept"/>
+            <field name="diploma_id" ref="bpharm"/>
+            <field name="faculty_id" ref="pharm"/>
+            <field name="duration">5</field> 
+        </record>
+         <record id="pharm_cpm" model="quickledger.programme">
+            <field name="department_id" ref="cpm_dept"/>
+            <field name="diploma_id" ref="bpharm"/>
+            <field name="faculty_id" ref="pharm"/>
+            <field name="duration">5</field> 
+        </record>
+        <record id="pharm_mib" model="quickledger.programme">
+            <field name="department_id" ref="mib_dept"/>
+            <field name="diploma_id" ref="bpharm"/>
+            <field name="faculty_id" ref="pharm"/>
+            <field name="duration">5</field> 
+        </record>
+        <record id="pharm_pht" model="quickledger.programme">
+            <field name="department_id" ref="pht_dept"/>
+            <field name="diploma_id" ref="bpharm"/>
+            <field name="faculty_id" ref="pharm"/>
+            <field name="duration">5</field> 
+        </record>
+        <record id="pharm_phm" model="quickledger.programme">
+            <field name="department_id" ref="phm_dept"/>
+            <field name="diploma_id" ref="bpharm"/>
+            <field name="faculty_id" ref="pharm"/>
+            <field name="duration">5</field> 
+        </record>
+         <record id="pharm_ptm" model="quickledger.programme">
+            <field name="department_id" ref="ptm_dept"/>
+            <field name="diploma_id" ref="bpharm"/>
+            <field name="faculty_id" ref="pharm"/>
+            <field name="duration">5</field> 
+        </record>
+
+
+        <record id="bagric_amb" model="quickledger.programme">
+            <field name="department_id" ref="amb_dept"/>
+            <field name="diploma_id" ref="bagric"/>
+            <field name="faculty_id" ref="agriculture"/>
+        </record>
+        <record id="ba_lig" model="quickledger.programme">
+            <field name="department_id" ref="lig_dept"/>
+            <field name="diploma_id" ref="ba"/>
+            <field name="faculty_id" ref="arts"/>
+        </record>
+        <record id="bsc_acc_cep" model="quickledger.programme">
+            <field name="department_id" ref="acc_dept"/>
+            <field name="diploma_id" ref="bsc"/>
+            <field name="entry_status_id" ref="cep"/>
+            <field name="faculty_id" ref="management"/>
+            <field name="duration">6</field> 
+        </record>
+        <record id="llb_cpl_law" model="quickledger.programme">
+            <field name="department_id" ref="cpl_dept"/>
+            <field name="diploma_id" ref="llb"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="duration">5</field> 
+        </record>
+        <record id="ilj_law" model="quickledger.programme">
+            <field name="department_id" ref="ilj_dept"/>
+            <field name="diploma_id" ref="llb"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="duration">5</field> 
+        </record>
+        <record id="ppl_law" model="quickledger.programme">
+            <field name="department_id" ref="ppl_dept"/>
+            <field name="diploma_id" ref="llb"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="duration">5</field> 
+        </record>
+        
+        
+        <!-- Levels-->
+        <record id="year7" model="quickledger.level">
+            <field name="name">Year 7</field>
+            <field name="code">Y7</field>
+             <field name="sequence">7</field>
+            <field name="type_id" ref="first"/>
+        </record>
+        <record id="year6" model="quickledger.level">
+            <field name="name">Year 6</field>
+            <field name="code">Y6</field> 
+             <field name="sequence">6</field>
+            <field name='next_class_id' ref='year7'/>
+            <field name="type_id" ref="first"/>
+        </record>
+        <record id="year5" model="quickledger.level">
+            <field name="name">Year 5</field>
+            <field name="code">Y5</field>
+            <field name="sequence">5</field>
+            <field name='next_class_id' ref='year6'/>
+            <field name="type_id" ref="first"/>
+        </record>
+        <record id="year4" model="quickledger.level">
+            <field name="name">Year 4</field>
+            <field name="code">Y4</field>
+             <field name="sequence">4</field>
+            <field name='next_class_id' ref='year5'/>
+            <field name="type_id" ref="first"/>
+        </record>
+        <record id="year3" model="quickledger.level">
+            <field name="name">Year 3</field>
+            <field name="code">Y3</field>
+             <field name="sequence">3</field>
+            <field name='next_class_id' ref='year4'/>
+            <field name="type_id" ref="first"/>
+        </record>
+        <record id="year2" model="quickledger.level">
+            <field name="name">Year 2</field>
+            <field name="code">Y2</field>
+            <field name="sequence">2</field>
+            <field name='next_class_id' ref='year3'/>
+            <field name="type_id" ref="first"/>
+        </record>
+        <record id="year1" model="quickledger.level">
+            <field name="name">Year 1</field>
+            <field name="code">Y1</field>
+             <field name="sequence">1</field>
+            <field name='next_class_id' ref='year2'/>
+            <field name="type_id" ref="first"/>
+        </record>
+
+
+        <!-- Student Information -->
+        <record id="okonkwo_ukamaka_christina" model="quickledger.student">
+            <field name="name">Okonkwo Ukamaka Christiana</field>
+            <field name="matriculation_number">NAU/2001/484557</field>
+            <field name="application_number">7858484557</field>
+            <field name="programme_id" ref="bagric_amb"/>
+            <field name="school_id" ref="unizik"/>
+        </record>
+        <record id="okoro_john" model="quickledger.student">
+            <field name="name">John Okoro</field>
+            <field name="matriculation_number">NAU/2004/087228</field>
+            <field name="application_number">7858787989</field>
+            <field name="programme_id" ref="ba_lig"/>
+            <field name="school_id" ref="unizik"/>
+        </record>
+         <record id="amaka_igwe" model="quickledger.student">
+            <field name="name">Amaka Stella Igwe</field>
+            <field name="matriculation_number">NAU/2011/019228</field>
+            <field name="application_number">5658787989</field>
+            <field name="programme_id" ref="bsc_acc_cep"/>
+            <field name="school_id" ref="unizik"/>
+        </record>
+         <record id="luke_nwoye" model="quickledger.student">
+            <field name="name">Luke Nwoye</field>
+            <field name="matriculation_number">NAU/2017/090428</field>
+            <field name="application_number">3338787989</field>
+            <field name="programme_id" ref="bsc_acc"/>
+            <field name="school_id" ref="unizik"/>
+            <field name="balance_brought_forward">4500</field>
+        </record>
+         <record id="stanley_okoye" model="quickledger.student">
+            <field name="name">Stanley Okoye</field>
+            <field name="matriculation_number">NAU/2017/100428</field>
+            <field name="application_number">5378787989</field>
+            <field name="programme_id" ref="mbbs_med"/>
+            <field name="school_id" ref="unizik"/>
+            <field name="balance_brought_forward">36340</field>
+        </record>
+
+
+        <record id="unizik_auto_job_scheduler" model="auto.job.scheduler">
+            <field name="name">Auto Job Scheduler</field>
+            <field name="description">Auto Job Scheduler</field>
+        </record>
+        <record forcecreate="True" id="ir_cron_import_course_scheduler_action" model="ir.cron">
+            <field name="name">Course Import: Process Course Import Queue Manager</field>
+            <field name="model_id" ref="model_auto_job_scheduler"/>
+            <field name="state">code</field>
+            <field name="code">model.process_course()</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">5</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field eval="False" name="doall"/>
+        </record>
+        <record forcecreate="True" id="ir_cron_import_result_scheduler_action" model="ir.cron">
+            <field name="name">Result Import: Process Result Import Queue Manager</field>
+            <field name="model_id" ref="model_auto_job_scheduler"/>
+            <field name="state">code</field>
+            <field name="code">model.process_result()</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">8</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field eval="False" name="doall"/>
+        </record>
+        <record model="ir.actions.server" id="server_action_academic_school_course">
+            <field name="name">Process Imports</field>
+            <field name="model_id" ref="quickledger.model_academic_school_course"/>
+            <field name="binding_model_id" ref="quickledger.model_academic_school_course" />
+            <field name="state">code</field>
+            <field name="code">
+                for record in records:
+                record.action_process()
+            </field>
+        </record>
+
+         <record id="bbf_fee" model="payment.type">
+            <field name="name">Balance Brought Forward</field>
+            <field name="description">Payment of Balance Brought Forward</field>
+            <field name="domain">Faculty</field>
+            <field name="has_components">False</field>
+            <field name="level_ids"
+                   eval="[(4, ref('year1')),(4, ref('year2')),(4, ref('year3')),(4, ref('year4')),(4, ref('year5')),(4, ref('year4'))]"/>
+            <field name="faculty_ids"
+                   eval="[(4, ref('basic')),(4, ref('education')),(4, ref('bioscience')),(4, ref('medicine')),(4, ref('physical')),(4, ref('pharm')),(4, ref('social')),(4, ref('basic')),(4, ref('law')),(4,ref('engineering')),(4,ref('management')),(4,ref('health')),(4,ref('arts')),(4,ref('environmental'))]"/>
+        </record>
+
+        <record id="tuition_fee" model="payment.type">
+            <field name="name">Tuition Fee</field>
+            <field name="description">Tuition Fee</field>
+            <field name="domain">Faculty</field>
+            <field name="has_components">False</field>
+            <field name="level_ids"
+                   eval="[(4, ref('year1')),(4, ref('year2')),(4, ref('year3')),(4, ref('year4')),(4, ref('year5')),(4, ref('year4'))]"/>
+            <field name="faculty_ids"
+                   eval="[(4, ref('basic')),(4, ref('education')),(4, ref('bioscience')),(4, ref('medicine')),(4, ref('physical')),(4, ref('pharm')),(4, ref('social')),(4, ref('basic')),(4, ref('law')),(4,ref('engineering')),(4,ref('management')),(4,ref('health')),(4,ref('arts')),(4,ref('environmental'))]"/>
+        </record>
+        <record id="sanitation_fee" model="payment.type">
+            <field name="name">Sanitation Fee</field>
+            <field name="description">Sanitation Fee</field>
+            <field name="domain">Faculty</field>
+            <field name="has_components">False</field>
+            <field name="level_ids"
+                   eval="[(4, ref('year1')),(4, ref('year2')),(4, ref('year3')),(4, ref('year4')),(4, ref('year5')),(4, ref('year4'))]"/>
+            <field name="faculty_ids"
+                   eval="[(4, ref('basic')),(4, ref('education')),(4, ref('bioscience')),(4, ref('medicine')),(4, ref('physical')),(4, ref('pharm')),(4, ref('social')),(4, ref('basic')),(4, ref('law')),(4,ref('engineering')),(4,ref('management')),(4,ref('health')),(4,ref('arts')),(4,ref('environmental'))]"/>
+        </record>
+        <record id="examination_fee" model="payment.type">
+            <field name="name">Examination Fee</field>
+            <field name="description">Examination Fee</field>
+            <field name="domain">Faculty</field>
+            <field name="has_components">False</field>
+            <field name="level_ids"
+                   eval="[(4, ref('year1')),(4, ref('year2')),(4, ref('year3')),(4, ref('year4')),(4, ref('year5')),(4, ref('year4'))]"/>
+            <field name="faculty_ids"
+                   eval="[(4, ref('basic')),(4, ref('education')),(4, ref('bioscience')),(4, ref('medicine')),(4, ref('physical')),(4, ref('pharm')),(4, ref('social')),(4, ref('basic')),(4, ref('law')),(4,ref('engineering')),(4,ref('management')),(4,ref('health')),(4,ref('arts')),(4,ref('environmental'))]"/>
+        </record>
+         <record id="medical_services" model="payment.type">
+            <field name="name">Medical Services</field>
+            <field name="description">Medical Services</field>
+            <field name="domain">Faculty</field>
+            <field name="has_components">False</field>
+            <field name="level_ids"
+                   eval="[(4, ref('year1')),(4, ref('year2')),(4, ref('year3')),(4, ref('year4')),(4, ref('year5')),(4, ref('year4'))]"/>
+            <field name="faculty_ids"
+                   eval="[(4, ref('basic')),(4, ref('education')),(4, ref('bioscience')),(4, ref('medicine')),(4, ref('physical')),(4, ref('pharm')),(4, ref('social')),(4, ref('basic')),(4, ref('law')),(4,ref('engineering')),(4,ref('management')),(4,ref('health')),(4,ref('arts')),(4,ref('environmental'))]"/>
+        </record>
+        <record id="ict_services" model="payment.type">
+            <field name="name">ICT Services</field>
+            <field name="description">ICT Services</field>
+            <field name="domain">Faculty</field>
+            <field name="has_components">False</field>
+            <field name="level_ids"
+                   eval="[(4, ref('year1')),(4, ref('year2')),(4, ref('year3')),(4, ref('year4')),(4, ref('year5')),(4, ref('year4'))]"/>
+            <field name="faculty_ids"
+                   eval="[(4, ref('basic')),(4, ref('education')),(4, ref('bioscience')),(4, ref('medicine')),(4, ref('physical')),(4, ref('pharm')),(4, ref('social')),(4, ref('basic')),(4, ref('law')),(4,ref('engineering')),(4,ref('management')),(4,ref('health')),(4,ref('arts')),(4,ref('environmental'))]"/>
+        </record>
+        <record id="library_fee" model="payment.type">
+            <field name="name">Library Fee</field>
+            <field name="description">Library Fee</field>
+            <field name="domain">Faculty</field>
+            <field name="has_components">False</field>
+            <field name="level_ids"
+                   eval="[(4, ref('year1')),(4, ref('year2')),(4, ref('year3')),(4, ref('year4')),(4, ref('year5')),(4, ref('year4'))]"/>
+            <field name="faculty_ids"
+                   eval="[(4, ref('basic')),(4, ref('education')),(4, ref('bioscience')),(4, ref('medicine')),(4, ref('physical')),(4, ref('pharm')),(4, ref('social')),(4, ref('basic')),(4, ref('law')),(4,ref('engineering')),(4,ref('management')),(4,ref('health')),(4,ref('arts')),(4,ref('environmental'))]"/>
+        </record>
+        <record id="sports_fee" model="payment.type">
+            <field name="name">Sports Fee</field>
+            <field name="description">Sports Fee</field>
+            <field name="domain">Faculty</field>
+            <field name="has_components">False</field>
+            <field name="level_ids"
+                   eval="[(4, ref('year1')),(4, ref('year2')),(4, ref('year3')),(4, ref('year4')),(4, ref('year5')),(4, ref('year4'))]"/>
+            <field name="faculty_ids"
+                   eval="[(4, ref('basic')),(4, ref('education')),(4, ref('bioscience')),(4, ref('medicine')),(4, ref('physical')),(4, ref('pharm')),(4, ref('social')),(4, ref('basic')),(4, ref('law')),(4,ref('engineering')),(4,ref('management')),(4,ref('health')),(4,ref('arts')),(4,ref('environmental'))]"/>
+        </record>
+         <record id="insurance" model="payment.type">
+            <field name="name">Insurance </field>
+            <field name="description">Insurance For the Session</field>
+            <field name="domain">Faculty</field>
+            <field name="has_components">False</field>
+            <field name="level_ids"
+                   eval="[(4, ref('year1')),(4, ref('year2')),(4, ref('year3')),(4, ref('year4')),(4, ref('year5')),(4, ref('year4'))]"/>
+            <field name="faculty_ids"
+                   eval="[(4, ref('basic')),(4, ref('education')),(4, ref('bioscience')),(4, ref('medicine')),(4, ref('physical')),(4, ref('pharm')),(4, ref('social')),(4, ref('basic')),(4, ref('law')),(4,ref('engineering')),(4,ref('management')),(4,ref('health')),(4,ref('arts')),(4,ref('environmental'))]"/>
+        </record>
+        <record id="student_union_fee" model="payment.type">
+            <field name="name">Student Union Fee </field>
+            <field name="description">Student Union Fee</field>
+            <field name="domain">Faculty</field>
+            <field name="has_components">False</field>
+            <field name="level_ids"
+                   eval="[(4, ref('year1')),(4, ref('year2')),(4, ref('year3')),(4, ref('year4')),(4, ref('year5')),(4, ref('year4'))]"/>
+            <field name="faculty_ids"
+                   eval="[(4, ref('basic')),(4, ref('education')),(4, ref('bioscience')),(4, ref('medicine')),(4, ref('physical')),(4, ref('pharm')),(4, ref('social')),(4, ref('basic')),(4, ref('law')),(4,ref('engineering')),(4,ref('management')),(4,ref('health')),(4,ref('arts')),(4,ref('environmental'))]"/>
+        </record>
+         <record id="transportion_fee" model="payment.type">
+            <field name="name">Transportation Fee </field>
+            <field name="description">Transportation Fee</field>
+            <field name="domain">Faculty</field>
+            <field name="has_components">False</field>
+            <field name="level_ids"
+                   eval="[(4, ref('year1')),(4, ref('year2')),(4, ref('year3')),(4, ref('year4')),(4, ref('year5')),(4, ref('year4'))]"/>
+            <field name="faculty_ids"
+                   eval="[(4, ref('basic')),(4, ref('education')),(4, ref('bioscience')),(4, ref('medicine')),(4, ref('physical')),(4, ref('pharm')),(4, ref('social')),(4, ref('basic')),(4, ref('law')),(4,ref('engineering')),(4,ref('management')),(4,ref('health')),(4,ref('arts')),(4,ref('environmental'))]"/>
+        </record>
+        <record id="laboratory_fee" model="payment.type">
+            <field name="name">Laboratory Fee </field>
+            <field name="description">Laboratory Fee</field>
+            <field name="domain">Faculty</field>
+            <field name="has_components">False</field>
+            <field name="level_ids"
+                   eval="[(4, ref('year1')),(4, ref('year2')),(4, ref('year3')),(4, ref('year4')),(4, ref('year5')),(4, ref('year4'))]"/>
+            <field name="faculty_ids"
+                   eval="[(4, ref('basic')),(4, ref('education')),(4, ref('bioscience')),(4, ref('medicine')),(4, ref('physical')),(4, ref('pharm')),(4, ref('social')),(4, ref('basic')),(4, ref('law')),(4,ref('engineering')),(4,ref('management')),(4,ref('health')),(4,ref('arts')),(4,ref('environmental'))]"/>
+        </record>
+         <record id="documentation_fee" model="payment.type">
+            <field name="name">Documentation Fee </field>
+            <field name="description">Documentation Fee</field>
+            <field name="domain">Faculty</field>
+            <field name="has_components">False</field>
+            <field name="level_ids"
+                   eval="[(4, ref('year1')),(4, ref('year2')),(4, ref('year3')),(4, ref('year4')),(4, ref('year5')),(4, ref('year4'))]"/>
+            <field name="faculty_ids"
+                   eval="[(4, ref('basic')),(4, ref('education')),(4, ref('bioscience')),(4, ref('medicine')),(4, ref('physical')),(4, ref('pharm')),(4, ref('social')),(4, ref('basic')),(4, ref('law')),(4,ref('engineering')),(4,ref('management')),(4,ref('health')),(4,ref('arts')),(4,ref('environmental'))]"/>
+        </record>
+        <record id="gar" model="payment.type">
+            <field name="name">G.A.R </field>
+            <field name="description">G.A.R</field>
+            <field name="domain">Faculty</field>
+            <field name="has_components">False</field>
+            <field name="level_ids"
+                   eval="[(4, ref('year1'))]"/>
+            <field name="faculty_ids"
+                   eval="[(4, ref('basic')),(4, ref('education')),(4, ref('bioscience')),(4, ref('medicine')),(4, ref('physical')),(4, ref('pharm')),(4, ref('social')),(4, ref('basic')),(4, ref('law')),(4,ref('engineering')),(4,ref('management')),(4,ref('health')),(4,ref('arts')),(4,ref('environmental'))]"/>
+        </record>
+        <record id="files" model="payment.type">
+            <field name="name">Files</field>
+            <field name="description">Files</field>
+            <field name="domain">Faculty</field>
+            <field name="has_components">False</field>
+            <field name="level_ids"
+                   eval="[(4, ref('year1'))]"/>
+            <field name="faculty_ids"
+                   eval="[(4, ref('basic')),(4, ref('education')),(4, ref('bioscience')),(4, ref('medicine')),(4, ref('physical')),(4, ref('pharm')),(4, ref('social')),(4, ref('basic')),(4, ref('law')),(4,ref('engineering')),(4,ref('management')),(4,ref('health')),(4,ref('arts')),(4,ref('environmental'))]"/>
+        </record>
+        <record id="id_card" model="payment.type">
+            <field name="name">Student ID Card</field>
+            <field name="description">Student ID Card</field>
+            <field name="domain">Faculty</field>
+            <field name="has_components">False</field>
+            <field name="level_ids"
+                   eval="[(4, ref('year1'))]"/>
+            <field name="faculty_ids"
+                   eval="[(4, ref('basic')),(4, ref('education')),(4, ref('bioscience')),(4, ref('medicine')),(4, ref('physical')),(4, ref('pharm')),(4, ref('social')),(4, ref('basic')),(4, ref('law')),(4,ref('engineering')),(4,ref('management')),(4,ref('health')),(4,ref('arts')),(4,ref('environmental'))]"/>
+        </record>
+        <record id="handbook" model="payment.type">
+            <field name="name">Hand Book</field>
+            <field name="description">Hand Book</field>
+            <field name="domain">Faculty</field>
+            <field name="has_components">False</field>
+            <field name="level_ids"
+                   eval="[(4, ref('year1'))]"/>
+            <field name="faculty_ids"
+                   eval="[(4, ref('basic')),(4, ref('education')),(4, ref('bioscience')),(4, ref('medicine')),(4, ref('physical')),(4, ref('pharm')),(4, ref('social')),(4, ref('basic')),(4, ref('law')),(4,ref('engineering')),(4,ref('management')),(4,ref('health')),(4,ref('arts')),(4,ref('environmental'))]"/>
+        </record>
+        <record id="xray" model="payment.type">
+            <field name="name">X-Ray</field>
+            <field name="description">X-Ray</field>
+            <field name="domain">Faculty</field>
+            <field name="has_components">False</field>
+            <field name="level_ids"
+                   eval="[(4, ref('year1'))]"/>
+            <field name="faculty_ids"
+                   eval="[(4, ref('basic')),(4, ref('education')),(4, ref('bioscience')),(4, ref('medicine')),(4, ref('physical')),(4, ref('pharm')),(4, ref('social')),(4, ref('basic')),(4, ref('law')),(4,ref('engineering')),(4,ref('management')),(4,ref('health')),(4,ref('arts')),(4,ref('environmental'))]"/>
+        </record>
+        <record id="caution_fee" model="payment.type">
+            <field name="name">Caution Fee</field>
+            <field name="description">Caution Fee</field>
+            <field name="domain">Faculty</field>
+            <field name="has_components">False</field>
+            <field name="level_ids"
+                   eval="[(4, ref('year1')),(4, ref('year2'))]"/>
+            <field name="faculty_ids"
+                   eval="[(4, ref('basic')),(4, ref('education')),(4, ref('bioscience')),(4, ref('medicine')),(4, ref('physical')),(4, ref('pharm')),(4, ref('social')),(4, ref('basic')),(4, ref('law')),(4,ref('engineering')),(4,ref('management')),(4,ref('health')),(4,ref('arts')),(4,ref('environmental'))]"/>
+        </record>
+         <record id="accreditation_fee" model="payment.type">
+            <field name="name">Accreditation Fee</field>
+            <field name="description">Accreditation Fee</field>
+            <field name="domain">Faculty</field>
+            <field name="has_components">False</field>
+            <field name="level_ids"
+                   eval="[(4, ref('year1')),(4, ref('year2'))]"/>
+            <field name="faculty_ids"
+                   eval="[(4, ref('basic')),(4, ref('education')),(4, ref('bioscience')),(4, ref('medicine')),(4, ref('physical')),(4, ref('pharm')),(4, ref('social')),(4, ref('basic')),(4, ref('law')),(4,ref('engineering')),(4,ref('management')),(4,ref('health')),(4,ref('arts')),(4,ref('environmental'))]"/>
+        </record>
+         <record id="verification_fee" model="payment.type">
+            <field name="name">Verification Fee</field>
+            <field name="description">Verification Fee</field>
+            <field name="domain">Faculty</field>
+            <field name="has_components">False</field>
+            <field name="level_ids"
+                   eval="[(4, ref('year1'))]"/>
+            <field name="faculty_ids"
+                   eval="[(4, ref('basic')),(4, ref('education')),(4, ref('bioscience')),(4, ref('medicine')),(4, ref('physical')),(4, ref('pharm')),(4, ref('social')),(4, ref('basic')),(4, ref('law')),(4,ref('engineering')),(4,ref('management')),(4,ref('health')),(4,ref('arts')),(4,ref('environmental'))]"/>
+        </record>
+         <record id="convocation" model="payment.type">
+            <field name="name">Convocation</field>
+            <field name="description">Convocation</field>
+            <field name="domain">Faculty</field>
+            <field name="has_components">False</field>
+            <field name="level_ids"
+                   eval="[(4, ref('year5')),(4, ref('year4'))]"/>
+            <field name="faculty_ids"
+                   eval="[(4, ref('basic')),(4, ref('education')),(4, ref('bioscience')),(4, ref('medicine')),(4, ref('physical')),(4, ref('pharm')),(4, ref('social')),(4, ref('basic')),(4, ref('law')),(4,ref('engineering')),(4,ref('management')),(4,ref('health')),(4,ref('arts')),(4,ref('environmental'))]"/>
+        </record>
+        <record id="laboratory_test" model="payment.type">
+            <field name="name">Laboratory Test</field>
+            <field name="description">Laboratory Test</field>
+            <field name="domain">Faculty</field>
+            <field name="has_components">False</field>
+            <field name="level_ids"
+                   eval="[(4, ref('year1'))]"/>
+            <field name="faculty_ids"
+                   eval="[(4, ref('basic')),(4, ref('education')),(4, ref('bioscience')),(4, ref('medicine')),(4, ref('physical')),(4, ref('pharm')),(4, ref('social')),(4, ref('basic')),(4, ref('law')),(4,ref('engineering')),(4,ref('management')),(4,ref('health')),(4,ref('arts')),(4,ref('environmental'))]"/>
+        </record>
+        <record id="departmental_dues" model="payment.type">
+            <field name="name">Departmental Dues</field>
+            <field name="description">Departmental Dues</field>
+            <field name="domain">Faculty</field>
+            <field name="has_components">False</field>
+            <field name="level_ids"
+                   eval="[(4, ref('year1')),(4, ref('year2')),(4, ref('year3')),(4, ref('year4')),(4, ref('year5')),(4, ref('year4'))]"/>
+            <field name="faculty_ids"
+                   eval="[(4, ref('basic')),(4, ref('education')),(4, ref('bioscience')),(4, ref('medicine')),(4, ref('physical')),(4, ref('pharm')),(4, ref('social')),(4, ref('basic')),(4, ref('law')),(4,ref('engineering')),(4,ref('management')),(4,ref('health')),(4,ref('arts')),(4,ref('environmental'))]"/>
+        </record>
+        <record id="development_levy" model="payment.type">
+            <field name="name">Development Levy</field>
+            <field name="description">Development Levy</field>
+            <field name="domain">Faculty</field>
+            <field name="has_components">False</field>
+            <field name="level_ids"
+                   eval="[(4, ref('year1')),(4, ref('year2')),(4, ref('year3')),(4, ref('year4')),(4, ref('year5')),(4, ref('year4'))]"/>
+            <field name="faculty_ids"
+                   eval="[(4, ref('basic')),(4, ref('education')),(4, ref('bioscience')),(4, ref('medicine')),(4, ref('physical')),(4, ref('pharm')),(4, ref('social')),(4, ref('basic')),(4, ref('law')),(4,ref('engineering')),(4,ref('management')),(4,ref('health')),(4,ref('arts')),(4,ref('environmental'))]"/>
+        </record>
+
+
+        <record id="eco_account_1" model="res.partner.bank">
+            <field name="acc_number">3972018675</field>
+            <field name="partner_id" ref="unizik"></field>
+            <field name="acc_type">bank</field>
+            <field name="bank_id" ref="ecobank"/>
+        </record>
+        <record id="gtb_account_1" model="res.partner.bank">
+            <field name="acc_number">0152860896</field>
+            <field name="partner_id" ref="unizik"></field>
+            <field name="acc_type">bank</field>
+            <field name="bank_id" ref="gtbank"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+        <record id="email_unizik_ledger_reminder_mail" model="mail.template">
+            <field name="name">Student Payment: Reminder</field>
+            <field name="model_id" ref="model_student_ledger"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="report_template" ref="action_report_student_ledger_comprehensive"/>
+            <field name="report_name">Student_Fees_${(object.student_id.full_name or '').replace(' ','_')}</field>        
+            <field name="email_from">benni.jiffy@gmail.com</field>
+            <field name="email_to">${object.student_id.email}</field>
+            <field name="subject">Student Fees Reminder</field>
+            <field name="body_html"><![CDATA[<p>Thank you!</p>]]>  
+            </field>
+        </record>
+    </data>
+</odoo>

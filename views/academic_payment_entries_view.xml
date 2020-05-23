@@ -1,0 +1,108 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="unizik_academic_Payment_entries_tree">
+      <field name="name">Payment Academic Entries</field>
+      <field name="model">academic.payment.entry</field>
+      <field name="arch" type="xml">
+        <tree create="false">
+            <field name='payment_date'/>
+            <field name="student_id"/>
+            <field name='session_id'/>
+            <field name='level_id'/>
+            <field name="bank_id"/>
+            <field name="amount" sum="Total Amount"/>
+            <field name="currency_id" invisible="1"/>
+        </tree>
+      </field>
+    </record>
+
+  <record id="unizik_academic_Payment_entries_form" model="ir.ui.view">
+     <field name="name">Academic Payment Entries</field>
+     <field name="model">academic.payment.entry</field>
+     <field name="arch" type="xml">
+        <form string="Academic Payment Entries" delete="false" create="false" edit="false" duplicate="0">
+            <sheet>
+                 <group colspan="4">
+                     <field name='payment_date'/>
+                     <field name="student_id"/>
+                     <field name='session_id'/>
+                     <field name='programme_id'/>
+                     <field name='teller_number'/>
+                     <field name="bank_id"/>
+                     <field name="amount"/>
+                     <field name="currency_id" invisible="1"/>
+                </group>
+                <notebook>
+                  <page name="public" string="Fee Details">
+                    <group>
+                      <field name="fee_ids" nolabel="1">
+                          <tree string="Fees Details" create="false" edit="false" delete="false">
+                                 <field name="type_id" string="Fees/Charges"/>
+                                 <field name="amount_paid" sum="Total Amount Paid"/>
+                                 <field name="amount_due" sum="Total Amount Due"/>
+                                 <field name='balance' sum="Total Balance"/>
+                                 <field name="currency_id" invisible="1"/>
+                          </tree>
+                      </field>
+                     </group>
+                    </page>
+                  </notebook>
+            </sheet>
+        </form>
+     </field>
+ </record>
+
+  <record id="view_pivot_academic_payment_entry" model="ir.ui.view">
+      <field name="model">academic.payment.entry</field>
+      <field name="arch" type="xml">
+         <pivot>
+             <field name="session_id" type="col"/>
+             <field name="amount" type="measure" />
+             <field name="programme_id" type="measure" />
+         </pivot>
+      </field>
+  </record>
+
+  <record id="view_graph_academic_payment_entry" model="ir.ui.view">
+      <field name="model">academic.payment.entry</field>
+         <field name="arch" type="xml">
+          <graph  string="Payment Analytics" type="bar">
+             <!--field name="bank_id" type="row"/-->
+             <field name="amount" type="measure" />
+             <field name="programme_id" type="row"/>
+          </graph>
+        </field>
+</record>
+ <record id="unizik_academic_payment_entry_view_search" model="ir.ui.view">
+            <field name="name">academic.payment.entry.search</field>
+            <field name="model">academic.payment.entry</field>
+            <field name="arch" type="xml">
+                <search string="Academic Payment Entry Search">
+                     <field name='payment_date'/>
+                     <field name="student_id"/>
+                     <field name='session_id'/>
+                     <field name='programme_id'/>
+                     <field name='teller_number'/>
+                     <field name="bank_id"/>
+                </search>
+            </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="unizik_academic_payment_entries_action_window">
+      <field name="name">Payment Entries</field>
+      <field name="res_model">academic.payment.entry</field>
+      <field name="search_view_id" ref="unizik_academic_payment_entry_view_search" />
+      <field name="view_mode">tree,form,pivot,graph</field>
+    </record>
+
+  </data>
+</odoo>
+
+
+
+
+
+

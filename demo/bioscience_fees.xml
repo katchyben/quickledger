@@ -1,0 +1,54 @@
+<odoo>
+    <data>
+      <!-- Y1 Tuition Fee-->
+        <record id="bioscience_tuition_fee_y1" model="academic.fee">
+            <field name="amount">100000</field>
+            <field name="type_id" ref="tuition_fee"/>
+            <field name="level_id" ref="year1"/>
+            <field name="faculty_id" ref="bioscience"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+        </record>
+
+        <!-- Y2 Tuition Fee -->
+        <record id="bioscience_tuition_fee_y2" model="academic.fee">
+            <field name="amount">55200</field>
+            <field name="type_id" ref="tuition_fee"/>
+            <field name="level_id" ref="year2"/>
+            <field name="faculty_id" ref="bioscience"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+        </record>
+
+        <!-- Y3 Tuition Fee -->
+        <record id="bioscience_tuition_fee_y3" model="academic.fee">
+            <field name="amount">26300</field>
+            <field name="type_id" ref="tuition_fee"/>
+            <field name="level_id" ref="year3"/>
+            <field name="faculty_id" ref="bioscience"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+        </record>
+
+        <!-- Y4 Tuition Fee -->
+        <record id="bioscience_tuition_fee_y4" model="academic.fee">
+            <field name="amount">41300</field>
+            <field name="type_id" ref="tuition_fee"/>
+            <field name="level_id" ref="year4"/>
+            <field name="faculty_id" ref="bioscience"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+        </record>
+
+         <!-- Y5 Tuition Fee -->
+        <record id="bioscience_tuition_fee_y5" model="academic.fee">
+            <field name="amount">26300</field>
+            <field name="type_id" ref="tuition_fee"/>
+            <field name="level_id" ref="year5"/>
+            <field name="faculty_id" ref="bioscience"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+        </record>
+
+    </data>
+</odoo>

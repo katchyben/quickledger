@@ -1,0 +1,81 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record model="ir.ui.view" id="unizik_faculty_tree">
+            <field name="name">faculties</field>
+            <field name="model">quickledger.faculty</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="classification_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="unizik_faculty_form" model="ir.ui.view">
+            <field name="name">faculties</field>
+            <field name="model">quickledger.faculty</field>
+            <field name="arch" type="xml">
+                <form string="Faculties" delete="false" duplicate="0">
+                    <sheet>
+                        <group colspan="4">
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="classification_id" widget="radio"/>
+                        </group>
+                        <notebook>
+                        <page name="public" string="Applicable Fees">
+                         <group>
+                           <field name="fee_ids" nolabel="1">
+                             <tree string="Fees" editable="bottom">
+                                <field name='type_id'/>
+                                <field name='level_id'/>
+                                <field name="amount"/>
+                                <field name='frequency'/>
+                            </tree>
+                          </field>
+                         </group>
+                        </page>
+                            <page name="public" string="Department">
+                                <group>
+                                    <field name="department_ids" nolabel="1">
+                                        <tree string="Departments" create="false" edit="false" delete="false">
+                                            <field name='name'/>
+                                            <field name="code"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                            <page name="public" string="Programmes">
+                                <group>
+                                    <field name="programme_ids" nolabel="1">
+                                        <tree string="Programmes" create="false" edit="false" delete="false">
+                                            <field name='name'/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                           
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="unizik_faculties_action_window">
+            <field name="name">Faculties</field>
+            <field name="res_model">quickledger.faculty</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>
+
+
+
+
+
+

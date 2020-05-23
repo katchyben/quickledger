@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_student_ledger">
+        <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2><span>Student Summary Report</span></h2>
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Matriculation #</th>
+                                    <th>Amount Due</th>
+                                    <th>Amount Paid</th>
+                                    <th>Balance</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <t t-foreach="docs" t-as="line">
+                                <tr>
+                                    <td><span class="m-0" t-field="line.student_id.name"/></td>
+                                    <td><span class="m-0" t-field="line.student_id.matriculation_number"/></td>
+                                    <td><span class="m-0" t-field="line.total_amount_due"/></td>
+                                    <td><span class="m-0" t-field="line.total_amount_paid"/></td>
+                                    <td><span class="m-0" t-field="line.total_balance"/></td>
+                                </tr>
+                              </t>
+                              <tr class="border-black">
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <strong><span t-esc="sum([line.total_amount_due for line in docs]) or 0.0" t-options='{"widget": "monetary", "display_currency": docs.currency_id}'/></strong>
+                                        </td>
+                                        <td>
+                                            <strong><span t-esc="sum([line.total_amount_paid for line in docs]) or 0.0" t-options='{"widget": "monetary", "display_currency": docs.currency_id}'/></strong>
+                                        </td>
+                                        <td>
+                                            <strong><span t-esc="sum([line.total_balance for line in docs]) or 0.0" t-options='{"widget": "monetary", "display_currency": docs.currency_id}'/></strong>
+                                        </td>
+                                    </tr>
+                            </tbody>
+                          </table>
+                        <div class="oe_structure"/>
+                    </div>
+                </t>
+           </t>
+    </template>
+</odoo>

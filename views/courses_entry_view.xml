@@ -1,0 +1,68 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record model="ir.ui.view" id="unizik_course_entry_tree">
+            <field name="name">courses</field>
+            <field name="model">programme.course.entry</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="programme_id"/>
+                    <field name="level_id"/>
+                    <field name="option_id"/>
+                    <field name="semester_id"/>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="units"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="unizik_course_entry_form" model="ir.ui.view">
+            <field name="name">courses</field>
+            <field name="model">programme.course.entry</field>
+            <field name="arch" type="xml">
+                <form string="Courses" delete="false" duplicate="0">
+                    <sheet>
+                        <group colspan="4">
+                            <field name="programme_id" options="{'no_create_edit': True,  'no_open': True}"/>
+                            <field name="option_id" domain="[('programme_id', '=', programme_id)]"/>
+                            <field name="level_id" options="{'no_create_edit': True,  'no_open': True}"/>
+                            <field name='name'/>
+                            <field name='code'/>
+                            <field name="semester_id" options="{'no_create_edit': True,  'no_open': True}"/>
+                            <field name="units"/>
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="unizik_programme_course_entry_view_search" model="ir.ui.view">
+            <field name="name">programme.course.entry.search</field>
+            <field name="model">programme.course.entry</field>
+            <field name="arch" type="xml">
+                <search string="Search Course">
+                    <field name="code"/>
+                    <field name="name" string="Name"/>
+                    <field name="semester_id" string="Semester"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="unizik_courses_entry_action_window">
+            <field name="name">Courses Entries</field>
+            <field name="res_model">programme.course.entry</field>
+            <field name="search_view_id" ref="unizik_programme_course_entry_view_search"/>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>
+
+
+
+
+
+

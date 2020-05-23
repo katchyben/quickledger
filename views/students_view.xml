@@ -1,0 +1,75 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record model="ir.ui.view" id="unizik_student_tree">
+            <field name="name">students</field>
+            <field name="model">quickledger.student</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="matriculation_number"/>
+                    <field name="application_number"/>
+                    <field name="name"/>
+                    <field name="programme_id"/>
+                    <field name="department_id"/>
+                    <field name="classification_id"/>
+                    <field name="entry_status_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="unizik_student_form" model="ir.ui.view">
+            <field name="name">students</field>
+            <field name="model">quickledger.student</field>
+            <field name="arch" type="xml">
+                <form string="students" delete="false" duplicate="0">
+                    <sheet>
+                        <group>
+                            <group string="Personal Information" col='2'>
+                                <field name="matriculation_number"/>
+                                <field name="application_number"/>
+                                <field name="name"/>
+                                <field name="phone"/>
+                                <field name="email"/>
+                                 <field name="entry_status_id"/>
+                            </group>
+                            <group col='2' string="...">
+                                <field name="image" widget="image" class="oe_left oe_avatar"/>
+                                <field name="programme_id" options="{'no_create_edit': True,  'no_open': True}"/>
+                                <field name="department_id" attrs="{'invisible':[('programme_id','=', False)]}"/>
+                                <field name="diploma_id" attrs="{'invisible':[('programme_id','=', False)]}"/>
+
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="unizik_student_view_search" model="ir.ui.view">
+            <field name="name">quickledger.student.search</field>
+            <field name="model">quickledger.student</field>
+            <field name="arch" type="xml">
+                <search string="Search Student">
+                    <field name="name" string="Name"/>
+                    <field name="application_number"/>
+                    <field name="matriculation_number"/>
+                    <field name="department_id"/>
+                    <field name="programme_id"/>
+                </search>
+            </field>
+        </record>
+        <!-- actions opening views on models -->
+        <record model="ir.actions.act_window" id="unizik_students_action_window">
+            <field name="name">Students</field>
+            <field name="res_model">quickledger.student</field>
+            <field name="search_view_id" ref="unizik_student_view_search"/>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>
+
+
+
+
+
+

@@ -1,0 +1,186 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record model="ir.ui.view" id="unizik_student_result_tree">
+            <field name="name">Student Results</field>
+            <field name="model">student.result</field>
+            <field name="arch" type="xml">
+                <tree create="false">
+                    <field name="student_id"/>
+                    <field name="programme_id"/>
+                    <field name="cgpa"/>
+                    <field name="honours_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="unizik_student_result_form" model="ir.ui.view">
+            <field name="name">Student Result</field>
+            <field name="model">student.result</field>
+            <field name="arch" type="xml">
+                <form string="Student Results" delete="false" create="false" edit="false" duplicate="0">
+                    <header>
+                        <button name="action_recompute_cgpa" string="Recompute CGPA" class="oe_highlight"
+                                type="object"/>
+                    </header>
+                    <sheet>
+                        <group colspan="4">
+                            <field name="student_id"/>
+                            <field name="programme_id"/>
+                            <field name="honours_id"/>
+                            <field name="cgpa"/>
+                        </group>
+                        <notebook>
+                            <page name="public" string="All Result">
+                                <group>
+                                    <field name="approved_result_ids" nolabel="1">
+                                        <tree string="Entries" decoration-danger="is_pass_mark==False"
+                                              create="false"
+                                              edit="false"
+                                              delete="false">
+                                            <field name="session_id"/>
+                                            <field name="course_id"/>
+                                            <field name="course_name"/>
+                                            <field name="level_id"/>
+                                            <field name='score'/>
+                                            <field name="grade_id"/>
+                                            <field name="units" sum="Total Units"/>
+                                            <field name="points_obtained" sum="Total Points"/>
+                                            <field name="is_pass_mark" invisible='1'/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                            <!--page name="public" string="First Semester">
+                                <group>
+                                    <field name="first_semester_result_ids" nolabel="1">
+                                        <tree string="Results" decoration-danger="is_pass_mark==False"
+                                              create="false" edit="false" delete="false">
+                                            <field name='session_id'/>
+                                            <field name="level_id"/>
+                                            <field name='semester_id'/>
+                                            <field name="course_name"/>
+                                            <field name="course_id"/>
+                                            <field name="units" sum="Total Units"/>
+                                            <field name="points_obtained" sum="Total Points"/>
+                                            <field name='score'/>
+                                            <field name="grade_id"/>
+                                            <field name="is_pass_mark" invisible='1'/>
+                                            <field name="status" invisible='1'/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <group>
+                                    <field name='first_semester_gpa'/>
+                                </group>
+                            </page>
+                            <page name="public" string="Second Semester">
+                                <group>
+                                    <field name="second_semester_result_ids" nolabel="1">
+                                        <tree string="Results" decoration-danger="is_pass_mark==False"
+                                              create="false" edit="false" delete="false">
+                                            <field name='session_id'/>
+                                            <field name="level_id"/>
+                                            <field name='semester_id'/>
+                                            <field name="course_name"/>
+                                            <field name="course_id"/>
+                                            <field name="units" sum="Total Units"/>
+                                            <field name="points_obtained" sum="Total Points"/>
+                                            <field name='score'/>
+                                            <field name="grade_id"/>
+                                            <field name="is_pass_mark" invisible='1'/>
+                                            <field name="status" invisible='1'/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <group>
+                                    <field name='second_semester_gpa'/>
+                                </group>
+                            </page>
+                            <page name="public" string="Third Semester">
+                                <group>
+                                    <field name="third_semester_result_ids" nolabel="1">
+                                        <tree string="Results" decoration-danger="is_pass_mark==False"
+                                              create="false" edit="false" delete="false">
+                                            <field name='session_id'/>
+                                            <field name="level_id"/>
+                                            <field name='semester_id'/>
+                                            <field name="course_name"/>
+                                            <field name="course_id"/>
+                                            <field name="units" sum="Total Units"/>
+                                            <field name="points_obtained" sum="Total Points"/>
+                                            <field name='score'/>
+                                            <field name="grade_id"/>
+                                            <field name="is_pass_mark" invisible='1'/>
+                                            <field name="status" invisible='1'/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <group>
+                                    <field name='third_semester_gpa'/>
+                                </group>
+                            </page>
+                            <page name="public" string="Fourth Semester">
+                                <group>
+                                    <field name="fourth_semester_result_ids" nolabel="1">
+                                        <tree string="Results" decoration-danger="is_pass_mark==False"
+                                              create="false" edit="false" delete="false">
+                                            <field name='session_id'/>
+                                            <field name="level_id"/>
+                                            <field name='semester_id'/>
+                                            <field name="course_name"/>
+                                            <field name="course_id"/>
+                                            <field name="units" sum="Total Units"/>
+                                            <field name="points_obtained" sum="Total Points"/>
+                                            <field name='score'/>
+                                            <field name="grade_id"/>
+                                            <field name="is_pass_mark" invisible='1'/>
+                                            <field name="status" invisible='1'/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <group>
+                                    <field name='fourth_semester_gpa'/>
+                                </group>
+                            </page-->
+                        </notebook>
+
+                        <div class="oe_chatter">
+                            <field name="message_follower_ids" widget="mail_followers"/>
+                            <field name="message_ids" widget="mail_thread"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="unizik_student_result_view_search" model="ir.ui.view">
+            <field name="name">student.result.search</field>
+            <field name="model">student.result</field>
+            <field name="arch" type="xml">
+                 <search string="Search Student Result">
+                    <field name="student_id" string="Name" filter_domain="['|',('student_id.name','ilike', self),('student_id.surname','ilike', self)]"/>
+                    <field name="student_id" string="Matriculation Number" filter_domain="[('student_id.matriculation_number','like', self)]"/>
+                    <field name="student_id" string="Application Number" filter_domain="[('student_id.application_number','like', self)]"/>
+                    <field name="honours_id" string="Honours"/>
+                </search>
+            </field>
+        </record>
+
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="unizik_student_results_action_window">
+            <field name="name">Student Results</field>
+            <field name="res_model">student.result</field>
+            <field name="search_view_id" ref="unizik_student_result_view_search"/>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>
+
+
+
+
+
+

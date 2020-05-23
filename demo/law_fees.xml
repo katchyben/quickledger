@@ -1,0 +1,864 @@
+<odoo>
+    <data>
+         <!-- Y1 Sanitation Fee -->
+         <record id="law_sanitation_fee_y1" model="academic.fee">
+            <field name="amount">2500</field>
+            <field name="type_id" ref="sanitation_fee"/>
+            <field name="level_id" ref="year1"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y2 sanitation Fee -->
+        <record id="law_sanitation_fee_y2" model="academic.fee">
+            <field name="amount">2500</field>
+            <field name="type_id" ref="sanitation_fee"/>
+            <field name="level_id" ref="year2"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y3 sanitation Fee -->
+        <record id="law_sanitation_fee_y3" model="academic.fee">
+            <field name="amount">1000</field>
+            <field name="type_id" ref="sanitation_fee"/>
+            <field name="level_id" ref="year3"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y4 sanitation Fee -->
+        <record id="law_sanitation_fee_y4" model="academic.fee">
+            <field name="amount">1000</field>
+            <field name="type_id" ref="sanitation_fee"/>
+            <field name="level_id" ref="year4"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+         <!-- Y5 sanitation Fee -->
+        <record id="law_sanitation_fee_y5" model="academic.fee">
+            <field name="amount">1000</field>
+            <field name="type_id" ref="sanitation_fee"/>
+            <field name="level_id" ref="year5"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+
+        <!-- Y1 Accreditation Fee-->
+        <record id="law_accreditation_fee_y1" model="academic.fee">
+            <field name="amount">20000</field>
+            <field name="type_id" ref="accreditation_fee"/>
+            <field name="level_id" ref="year1"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y2 Accreditation Fee -->
+        <record id="law_accreditation_fee_y2" model="academic.fee">
+            <field name="amount">10000</field>
+            <field name="type_id" ref="accreditation_fee"/>
+            <field name="level_id" ref="year2"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+             <field name="classification">Arts</field>
+        </record>
+
+         <!-- Y1 Files -->
+        <record id="law_files_fee_y1" model="academic.fee">
+            <field name="amount">500</field>
+            <field name="type_id" ref="files"/>
+            <field name="level_id" ref="year1"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y1 Laboratory Test -->
+        <record id="law_laboratory_test_y1" model="academic.fee">
+            <field name="amount">500</field>
+            <field name="type_id" ref="laboratory_test"/>
+            <field name="level_id" ref="year1"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+         <!-- Y1 Handook -->
+        <record id="law_handbook_fee_y1" model="academic.fee">
+            <field name="amount">2000</field>
+            <field name="type_id" ref="handbook"/>
+            <field name="level_id" ref="year1"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+         <!-- Y1 X-Ray -->
+        <record id="law_xray_y1" model="academic.fee">
+            <field name="amount">500</field>
+            <field name="type_id" ref="xray"/>
+            <field name="level_id" ref="year1"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+         <!-- Y1 Student ID Card -->
+        <record id="law_id_card_y1" model="academic.fee">
+            <field name="amount">2000</field>
+            <field name="type_id" ref="id_card"/>
+            <field name="level_id" ref="year1"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+ <field name="classification">Arts</field>
+        </record>
+
+          <!-- Y1 Verification Fee  -->
+        <record id="law_verification_fee_y1" model="academic.fee">
+            <field name="amount">2000</field>
+            <field name="type_id" ref="verification_fee"/>
+            <field name="level_id" ref="year1"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+           <!-- Y1 GAR Fee  -->
+        <record id="law_gar_y1" model="academic.fee">
+            <field name="amount">1500</field>
+            <field name="type_id" ref="gar"/>
+            <field name="level_id" ref="year1"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+         <!-- Y1 Caution Fee-->
+        <record id="law_caution_fee_y1" model="academic.fee">
+            <field name="amount">1000</field>
+            <field name="type_id" ref="caution_fee"/>
+            <field name="level_id" ref="year1"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y2 Caution Fee -->
+        <record id="law_caution_fee_y2" model="academic.fee">
+            <field name="amount">1000</field>
+            <field name="type_id" ref="caution_fee"/>
+            <field name="level_id" ref="year2"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+    
+        <!-- Y5 Convoction Fee -->
+        <record id="law_convocation_y5" model="academic.fee">
+            <field name="amount">20000</field>
+            <field name="type_id" ref="convocation"/>
+            <field name="level_id" ref="year5"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+
+         <!-- Y1 Department Dues -->
+        <record id="law_departmental_dues_y1" model="academic.fee">
+            <field name="amount">10000</field>
+            <field name="type_id" ref="departmental_dues"/>
+            <field name="level_id" ref="year1"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y2 Department Dues -->
+        <record id="law_departmental_dues_y2" model="academic.fee">
+            <field name="amount">6000</field>
+            <field name="type_id" ref="departmental_dues"/>
+            <field name="level_id" ref="year2"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y3 Department Dues -->
+        <record id="law_departmental_dues_y3" model="academic.fee">
+            <field name="amount">6000</field>
+            <field name="type_id" ref="departmental_dues"/>
+            <field name="level_id" ref="year3"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y4 Department Dues -->
+        <record id="law_departmental_dues_y4" model="academic.fee">
+            <field name="amount">6000</field>
+            <field name="type_id" ref="departmental_dues"/>
+            <field name="level_id" ref="year4"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y5 Department Dues -->
+        <record id="law_departmental_dues_y5" model="academic.fee">
+            <field name="amount">6000</field>
+            <field name="type_id" ref="departmental_dues"/>
+            <field name="level_id" ref="year5"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+          <!-- Y1 Development Levy -->
+        <record id="law_development_levy_y1" model="academic.fee">
+            <field name="amount">20000</field>
+            <field name="type_id" ref="development_levy"/>
+            <field name="level_id" ref="year1"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y2 Department Levy -->
+        <record id="law_development_levy_y2" model="academic.fee">
+            <field name="amount">20000</field>
+            <field name="type_id" ref="development_levy"/>
+            <field name="level_id" ref="year2"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y3 Development Levy -->
+        <record id="law_development_levy_y3" model="academic.fee">
+            <field name="amount">7500</field>
+            <field name="type_id" ref="development_levy"/>
+            <field name="level_id" ref="year3"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y4 Development Levy -->
+        <record id="law_development_levy_y4" model="academic.fee">
+            <field name="amount">7500</field>
+            <field name="type_id" ref="development_levy"/>
+            <field name="level_id" ref="year4"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+         <!-- Y4 Development Levy -->
+        <record id="law_development_levy_y5" model="academic.fee">
+            <field name="amount">7500</field>
+            <field name="type_id" ref="development_levy"/>
+            <field name="level_id" ref="year5"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+
+       
+
+
+          <!-- Y1 Documentation Fee -->
+        <record id="law_documentation_fee_y1" model="academic.fee">
+            <field name="amount">1000</field>
+            <field name="type_id" ref="documentation_fee"/>
+            <field name="level_id" ref="year1"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y2 Documentation Fee -->
+        <record id="law_documentation_fee_y2" model="academic.fee">
+            <field name="amount">1000</field>
+            <field name="type_id" ref="documentation_fee"/>
+            <field name="level_id" ref="year2"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+           <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y3 Documentation Fee -->
+        <record id="law_documentation_fee_y3" model="academic.fee">
+            <field name="amount">1000</field>
+            <field name="type_id" ref="documentation_fee"/>
+            <field name="level_id" ref="year3"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y4 Documentation Fee -->
+        <record id="law_documentation_fee_y4" model="academic.fee">
+            <field name="amount">1000</field>
+            <field name="type_id" ref="documentation_fee"/>
+            <field name="level_id" ref="year4"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+         <!-- Y5 Documentation Fee -->
+        <record id="law_documentation_fee_y5" model="academic.fee">
+            <field name="amount">1000</field>
+            <field name="type_id" ref="documentation_fee"/>
+            <field name="level_id" ref="year5"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+
+           <!-- Y1 Examination Fee -->
+        <record id="law_examination_fee_y1" model="academic.fee">
+            <field name="amount">6000</field>
+            <field name="type_id" ref="examination_fee"/>
+            <field name="level_id" ref="year1"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y2 Examination Fee -->
+        <record id="law_examination_fee_y2" model="academic.fee">
+            <field name="amount">6000</field>
+            <field name="type_id" ref="examination_fee"/>
+            <field name="level_id" ref="year2"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y3 Examination Fee -->
+        <record id="law_examination_fee_y3" model="academic.fee">
+            <field name="amount">2000</field>
+            <field name="type_id" ref="examination_fee"/>
+            <field name="level_id" ref="year3"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y4 Examination Fee -->
+        <record id="law_examination_fee_y4" model="academic.fee">
+            <field name="amount">2000</field>
+            <field name="type_id" ref="examination_fee"/>
+            <field name="level_id" ref="year4"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+          <!-- Y5 Examination Fee -->
+        <record id="law_examination_fee_y4" model="academic.fee">
+            <field name="amount">2000</field>
+            <field name="type_id" ref="examination_fee"/>
+            <field name="level_id" ref="year5"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+           <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y1 ICT Services -->
+        <record id="law_ict_services_y1" model="academic.fee">
+            <field name="amount">10000</field>
+            <field name="type_id" ref="ict_services"/>
+            <field name="level_id" ref="year1"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+           <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y2 ICT Services -->
+        <record id="law_ict_services_y2" model="academic.fee">
+            <field name="amount">7000</field>
+            <field name="type_id" ref="ict_services"/>
+            <field name="level_id" ref="year2"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y3 ICT Services -->
+        <record id="law_ict_services_y3" model="academic.fee">
+            <field name="amount">1500</field>
+            <field name="type_id" ref="ict_services"/>
+            <field name="level_id" ref="year3"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y4 ICT Services Fee -->
+        <record id="law_ict_services_y4" model="academic.fee">
+            <field name="amount">1500</field>
+            <field name="type_id" ref="ict_services"/>
+            <field name="level_id" ref="year4"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+         <!-- Y5 ICT Services Fee -->
+        <record id="law_ict_services_y5" model="academic.fee">
+            <field name="amount">1500</field>
+            <field name="type_id" ref="ict_services"/>
+            <field name="level_id" ref="year5"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+
+         <!-- Y1 Insurance -->
+        <record id="law_insurance_y1" model="academic.fee">
+            <field name="amount">1000</field>
+            <field name="type_id" ref="insurance"/>
+            <field name="level_id" ref="year1"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y2 Insurance -->
+        <record id="law_insurance_y2" model="academic.fee">
+            <field name="amount">1000</field>
+            <field name="type_id" ref="insurance"/>
+            <field name="level_id" ref="year2"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y3 Insurance -->
+        <record id="law_insurance_y3" model="academic.fee">
+            <field name="amount">500</field>
+            <field name="type_id" ref="insurance"/>
+            <field name="level_id" ref="year3"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y4 Insurance-->
+        <record id="law_insurance_y4" model="academic.fee">
+            <field name="amount">500</field>
+            <field name="type_id" ref="insurance"/>
+            <field name="level_id" ref="year4"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y4 Insurance-->
+        <record id="law_insurance_y5" model="academic.fee">
+            <field name="amount">500</field>
+            <field name="type_id" ref="insurance"/>
+            <field name="level_id" ref="year5"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+         
+         <!-- Y1 Laboratory Fee -->
+        <record id="law_laboratory_fee_y1" model="academic.fee">
+            <field name="amount">5000</field>
+            <field name="type_id" ref="laboratory_fee"/>
+            <field name="level_id" ref="year1"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y2 Laboratory Fee  -->
+        <record id="law_laboratory_fee_y2" model="academic.fee">
+            <field name="amount">3000</field>
+            <field name="type_id" ref="laboratory_fee"/>
+            <field name="level_id" ref="year2"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y3 Laboratory Fee  -->
+        <record id="law_laboratory_fee_y3" model="academic.fee">
+            <field name="amount">1400</field>
+            <field name="type_id" ref="laboratory_fee"/>
+            <field name="level_id" ref="year3"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y4 Laboratory Fee -->
+        <record id="law_laboratory_fee_y4" model="academic.fee">
+            <field name="amount">1400</field>
+            <field name="type_id" ref="laboratory_fee"/>
+            <field name="level_id" ref="year4"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+         <!-- Y5 Laboratory Fee -->
+        <record id="law_laboratory_fee_y5" model="academic.fee">
+            <field name="amount">1400</field>
+            <field name="type_id" ref="laboratory_fee"/>
+            <field name="level_id" ref="year5"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+         <!-- Y1 Library Fee -->
+        <record id="law_library_fee_y1" model="academic.fee">
+            <field name="amount">3000</field>
+            <field name="type_id" ref="library_fee"/>
+            <field name="level_id" ref="year1"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y2 Library Fee  -->
+        <record id="law_library_fee_y2" model="academic.fee">
+            <field name="amount">1000</field>
+            <field name="type_id" ref="library_fee"/>
+            <field name="level_id" ref="year2"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y3 Library Fee  -->
+        <record id="law_library_fee_y3" model="academic.fee">
+            <field name="amount">500</field>
+            <field name="type_id" ref="library_fee"/>
+            <field name="level_id" ref="year3"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y4 Libary Fee -->
+        <record id="law_library_fee_y4" model="academic.fee">
+            <field name="amount">500</field>
+            <field name="type_id" ref="library_fee"/>
+            <field name="level_id" ref="year4"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+         <!-- Y5 Libary Fee -->
+        <record id="law_library_fee_y5" model="academic.fee">
+            <field name="amount">500</field>
+            <field name="type_id" ref="library_fee"/>
+            <field name="level_id" ref="year5"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y1 Medical Services  -->
+        <record id="law_medical_services_y1" model="academic.fee">
+            <field name="amount">3000</field>
+            <field name="type_id" ref="medical_services"/>
+            <field name="level_id" ref="year1"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y2 Medical Services   -->
+        <record id="law_medical_services_y2" model="academic.fee">
+            <field name="amount">3000</field>
+            <field name="type_id" ref="medical_services"/>
+            <field name="level_id" ref="year2"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y3 Medical Services  -->
+        <record id="law_medical_services_y3" model="academic.fee">
+            <field name="amount">2600</field>
+            <field name="type_id" ref="medical_services"/>
+            <field name="level_id" ref="year3"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+           <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y4 Medical Services -->
+        <record id="law_medical_services_y4" model="academic.fee">
+            <field name="amount">2600</field>
+            <field name="type_id" ref="medical_services"/>
+            <field name="level_id" ref="year4"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+         <!-- Y4 Medical Services -->
+        <record id="law_medical_services_y5" model="academic.fee">
+            <field name="amount">2600</field>
+            <field name="type_id" ref="medical_services"/>
+            <field name="level_id" ref="year5"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+         <!-- Y1 Sports Fee  -->
+        <record id="law_sports_fee_y1" model="academic.fee">
+            <field name="amount">2500</field>
+            <field name="type_id" ref="sports_fee"/>
+            <field name="level_id" ref="year1"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y2 Sports Fee -->
+        <record id="law_sports_fee_y2" model="academic.fee">
+            <field name="amount">2500</field>
+            <field name="type_id" ref="sports_fee"/>
+            <field name="level_id" ref="year2"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y3 Sports Fee  -->
+        <record id="law_sports_fee_y3" model="academic.fee">
+            <field name="amount">1200</field>
+            <field name="type_id" ref="sports_fee"/>
+            <field name="level_id" ref="year3"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y4 Sports Fee -->
+        <record id="law_sports_fee_y4" model="academic.fee">
+            <field name="amount">1200</field>
+            <field name="type_id" ref="sports_fee"/>
+            <field name="level_id" ref="year4"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+         <!-- Y5 Sports Fee -->
+        <record id="law_sports_fee_y5" model="academic.fee">
+            <field name="amount">1200</field>
+            <field name="type_id" ref="sports_fee"/>
+            <field name="level_id" ref="year5"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+
+
+         <!-- Y1 Student Union Fee  -->
+        <record id="law_student_union_fee_y1" model="academic.fee">
+            <field name="amount">1000</field>
+            <field name="type_id" ref="student_union_fee"/>
+            <field name="level_id" ref="year1"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y2 Student Union Fee -->
+        <record id="law_student_union_fee_y2" model="academic.fee">
+            <field name="amount">500</field>
+            <field name="type_id" ref="student_union_fee"/>
+            <field name="level_id" ref="year2"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y3 Student Union Fee -->
+        <record id="law_student_union_fee_y3" model="academic.fee">
+            <field name="amount">100</field>
+            <field name="type_id" ref="student_union_fee"/>
+            <field name="level_id" ref="year3"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y4 Student Union Fee -->
+        <record id="law_student_union_fee_y4" model="academic.fee">
+            <field name="amount">100</field>
+            <field name="type_id" ref="student_union_fee"/>
+            <field name="level_id" ref="year4"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+         <!-- Y5 Student Union Fee -->
+        <record id="law_student_union_fee_y5" model="academic.fee">
+            <field name="amount">100</field>
+            <field name="type_id" ref="student_union_fee"/>
+            <field name="level_id" ref="year5"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+
+
+         <!-- Y1 Tranportation Fee  -->
+        <record id="law_transportion_fee_y1" model="academic.fee">
+            <field name="amount">1000</field>
+            <field name="type_id" ref="transportion_fee"/>
+            <field name="level_id" ref="year1"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y2 Tranportation Fee -->
+        <record id="law_transportion_fee_y2" model="academic.fee">
+            <field name="amount">500</field>
+            <field name="type_id" ref="transportion_fee"/>
+            <field name="level_id" ref="year2"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y3 Tranportation Fee -->
+        <record id="law_transportion_fee_y3" model="academic.fee">
+            <field name="amount">100</field>
+            <field name="type_id" ref="transportion_fee"/>
+            <field name="level_id" ref="year3"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+        <!-- Y4 Tranportation Fee -->
+        <record id="law_transportion_fee_y4" model="academic.fee">
+            <field name="amount">1000</field>
+            <field name="type_id" ref="transportion_fee"/>
+            <field name="level_id" ref="year4"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+
+         <!-- Y5 Tranportation Fee -->
+        <record id="law_transportion_fee_y5" model="academic.fee">
+            <field name="amount">1000</field>
+            <field name="type_id" ref="transportion_fee"/>
+            <field name="level_id" ref="year5"/>
+            <field name="faculty_id" ref="law"/>
+            <field name="term_id">50</field>
+            <field name="frequency">Session</field>
+            <field name="classification">Arts</field>
+        </record>
+    </data>
+</odoo>

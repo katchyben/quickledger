@@ -1,0 +1,60 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="unizik_academic_diploma_tree">
+            <field name="name">Degrees</field>
+            <field name="model">quickledger.diploma</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="type_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="unizik_academic_diploma_form" model="ir.ui.view">
+            <field name="name">Diplomas</field>
+            <field name="model">quickledger.diploma</field>
+            <field name="arch" type="xml">
+                <form string="Diplomas" delete="false" duplicate="0">
+                    <sheet>
+                        <group colspan="4">
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="type_id"/>
+                            <field name="description"/>
+                        </group>
+                        <notebook>
+                            <page name="public" string="Department Information">
+                                <group>
+                                    <field name="department_ids" nolabel="1">
+                                        <tree string="Departments" create="false" edit="false" delete="false">
+                                            <field name="code"/>
+                                            <field name="name"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="unizik_academic_diplomas_action_window">
+            <field name="name">Degrees</field>
+            <field name="res_model">quickledger.diploma</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>
+
+
+
+
+
+

@@ -1,0 +1,60 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record model="ir.ui.view" id="unizik_department_tree">
+            <field name="name">departments</field>
+            <field name="model">quickledger.department</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="faculty_id"/>
+                    <field name="classification_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="unizik_department_form" model="ir.ui.view">
+            <field name="name">department</field>
+            <field name="model">quickledger.department</field>
+            <field name="arch" type="xml">
+                <form string="Department" delete="false" duplicate="0">
+                    <sheet>
+                        <group colspan="4">
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="faculty_id" options="{'no_create_edit': True,  'no_open': True}"/>
+                            <field name="classification_id"/>
+                        </group>
+                        <notebook>
+                            <page name="public" string="Programmes">
+                                <group>
+                                    <field name="programme_ids" nolabel="1">
+                                        <tree string="Programmes" create="false" edit="false" delete="false">
+                                            <field name='name'/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="unizik_departments_action_window">
+            <field name="name">Departments</field>
+            <field name="res_model">quickledger.department</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>
+
+
+
+
+
+

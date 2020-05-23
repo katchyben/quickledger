@@ -1,0 +1,56 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="unizik_academic_diploma_type_tree">
+            <field name="name">Degree Types</field>
+            <field name="model">quickledger.diploma.type</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="unizik_academic_diploma_type_form" model="ir.ui.view">
+            <field name="name">Diploma Types</field>
+            <field name="model">quickledger.diploma.type</field>
+            <field name="arch" type="xml">
+                <form string="Diploma Types" delete="false" duplicate="0">
+                    <sheet>
+                        <group colspan="4">
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="description"/>
+                        </group>
+                        <notebook>
+                            <page name="public" string="Degree Types">
+                                <group>
+                                    <field name="diploma_ids" nolabel="1">
+                                        <tree string="Degrees" create="false" edit="false" delete="false">
+                                            <field name="code"/>
+                                            <field name="name"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="unizik_academic_diploma_types_action_window">
+            <field name="name">Degree Types</field>
+            <field name="res_model">quickledger.diploma.type</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>
+
+
+
+
+
+
